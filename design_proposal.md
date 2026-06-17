@@ -61,3 +61,28 @@ LinkedList& operator=(const LinkedList&) //assignment operator
 
 ---
 
+## HashMap
+Separate chaining using linked lists is selected as the collision handling strategy because it naturally supports dynamic growth, simplifies deletion
+Methods - 
+
+```cpp
+HashMap() //construct empty hashmap with zero elements and initial bucket array
+void set(string key, string value) //insert or update key-value pair 
+bool get(string key, string& value) const //retrieve associated value 
+bool exists(string key) const //check key existence 
+void remove(string key) //remove key-value pair 
+void clear() //remove all entries 
+int size() const //return stored pair count 
+double loadFactor() const //return current load factor 
+int collisionCount() const //return current collision count 
+void rehash() //resize bucket table 
+~HashMap() //destructor 
+HashMap(const HashMap&) //copy constructor 
+HashMap& operator=(const HashMap&) //assignment operator
+
+```
+- The `get()` method returns the associated value through a reference parameter and uses a boolean return value to indicate success, avoiding ambiguous sentinel values for missing keys.
+- The `rehash()` method allows manual resizing of the bucket table which can be useful for avoiding collisions and improving overall performance.
+- The `collisionCount()` function provides useful diagnostic information for benchmarking and evaluation of hash quality.
+- The `clear()` method removes all entries from the HashMap, freeing associated memory and resetting the internal state.
+---
