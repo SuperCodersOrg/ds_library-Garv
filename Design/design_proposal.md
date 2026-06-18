@@ -14,10 +14,10 @@ Methods -
 ```cpp
 DynamicArray() //construct empty array
 void append(int value) //append element
-void insert(int index, int value) //insert at position
+void insert(int value, int index) //insert at position
 void remove(int index) //remove element
 bool get(int index, int& value) const //returns value
-void set(int index, int value) // modify value at given index
+void set(int value, int index) // modify value at given index
 void reserve(int newCapacity) //preallocate storage 
 int popBack() //return last element and remove it
 void clear() //remove all elements
@@ -43,7 +43,7 @@ Methods -
 LinkedList() //construct empty linkedlist
 void insertFront(int value) //insert at front
 void insertBack(int value) //insert at end 
-void insert(int index, int value) //insert at position
+void insert(int value, int index) //insert at position
 void removeFront() //remove first node
 void remove(int index) //remove node from a specific position
 int search(int value) const //search element

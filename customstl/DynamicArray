@@ -5,86 +5,93 @@ using namespace std;
 
 class DynamicArray {
 private:
-    int size;
-    int capacity;
+    int size_;
+    int capacity_;
     int *data;
 public:
 
     DynamicArray(){
-        size = 0;
-        capacity = 0;
+        size_ = 0;
+        capacity_ = 0;
         data = nullptr;
     }
 
     void append(int value){
-        //if capacity 0
-        if(capacity==0)
+        //if capacity_ 0
+        if(capacity_==0)
         {
-            capacity=1;
-            data = new int [capacity];
+            resize(1);
         }
         //if full
-        if(size==capacity)
+        if(size_==capacity_)
         {
-            int oldcapacity = capacity;
-            capacity*=2;
-            int *arr = new int [capacity];
-            for(int i=0;i<size;i++)
-            {
-                arr[i]=data[i];
-            }
-            delete []data;
-            data = arr;
+            resize(capacity_*2);
         }
         //normally
-        data[size++]=value;
+        data[size_++]=value;
     }
 
     void insert(int value,int index)
     {
         //indexcheck
-        if(index<0 || index>size)
+        if(index<0 || index>size_)
         {
             cout<< "Error - Invalid Index";
+            return;
         }
-        //if capacity 0
-        if(capacity==0)
+        //if capacity_ 0
+        if(capacity_==0)
         {
-            capacity=1;
-            data = new int [capacity];
+            resize(1);
         }
         //if full
-        if(size==capacity)
+        if(size_==capacity_)
         {
-            capacity*=2;
-            int *arr = new int [capacity];
-
-            for(int i=0;i<index;i++)
-            {
-                arr[i]=data[i];
-            }
-            for(int i=index;i<size;i++)
-            {
-                arr[i+1]=data[i];
-            }
-            delete []data;
-            data = arr;
+            resize(capacity_*2);
         }
-        else
+        for(int i=size_;i>index;i--)
         {
-            for(int i=size;i>index;i--)
-            {
-                data[i]=data[i-1];
-            }
+            data[i]=data[i-1];
         }
         data[index]=value;
-        size++;
+        size_++;
     }
 
-    //testing purpose
-    void print()
+    void remove(int index)
     {
-        for(int i=0;i<size;i++)
+        if(index<0 || index>=size_)
+        {
+            cout<< "Error - Invalid Index";
+            return;
+        }
+        for(int i=index;i<size_-1;i++)
+        {
+            data[i]=data[i+1];
+        }
+        size_--;
+        if(capacity_>1 && size_<=capacity_/4)
+        resize(capacity_/2);
+    }
+    void resize(int newCapacity)
+    {
+        if(newCapacity<size_)return;
+
+        int* arr = new int[newCapacity];
+
+        for(int i = 0; i < size_; i++)
+        {
+            arr[i] = data[i];
+        }
+
+        delete[] data;
+
+        data = arr;
+        capacity_ = newCapacity;
+    }
+    //testing purpose
+    void print()const
+    {
+        for(int i=0;i<size_;i++)
         {
             cout<<data[i]<<" ";
         }
