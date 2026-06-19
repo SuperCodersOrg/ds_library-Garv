@@ -54,45 +54,71 @@ class DynamicArray {
 ---
 
 ### 2. LinkedList 
-The LinkedList is implemented as a singly linked structure while maintaining both head and tail pointers along with the current node count. This allows constant time insertion at both ends while minimizing per node memory overhead .
+The LinkedList is implemented using compile-time polymorphism (if constexpr and template specialization) to act as a hybrid data structure. It defaults to a singly linked structure to minimize per-node memory overhead, but can be instantiated as a doubly linked list at compile time with zero runtime branching. It maintains head and tail pointers along with the current node count to guarantee constant time insertion at both ends.
 Methods - 
 
 ```cpp
-template<typename T>
+template<typename T, bool IsDoubly = false>
 class LinkedList {
     private:
-        struct Node {
-            T data;
+        template<typename U, bool Doubly> struct Node;
+        // Singly Linked Node 
+        template<typename U>
+        struct Node<U, false> {
+            U data;
             Node* next;
-            Node(const T& value)
+            Node(const U& value)
             {
                 data = value;
                 next = nullptr;
             }
+            bool operator==(const Node& other) const { return this->data == other.data; }
+            friend ostream& operator<<(ostream& os, const Node& node) { return os << node.data; }
         };
-        Node* head;
-        Node* tail;
+        // Doubly Linked Node 
+        template<typename U>
+        struct Node<U, true> {
+            U data;
+            Node* next;
+            Node* prev;
+            Node(const U& value)
+            {
+                data = value;
+                next = nullptr;
+                prev = nullptr;
+            }
+            bool operator==(const Node& other) const { return this->data == other.data; }
+            friend ostream& operator<<(ostream& os, const Node& node) { return os << node.data; }
+        };
+        using NodeType = Node<T, IsDoubly>;
+        NodeType* head;
+        NodeType* tail;
         int count;
     public:
-        LinkedList() //construct empty linkedlist
-        template<typename Container>
-        LinkedList(const Container& container); //construct from any iterable container
-        void insertFront(const T& value) //insert at front
-        void insertBack(const T& value) //insert at end 
-        void insert(const T& value, int index) //insert at position
-        void removeFront() //remove first node
-        void remove(int index) //remove node from a specific position
-        int search(const T& value) const //search element
-        void clear() //delete all nodes
-        void print() const //display all contents
-        int size() const //return node count
-        bool isEmpty() const //check whether empty
-        ~LinkedList() //destructor
-        LinkedList(const LinkedList&) //copy constructor
-        LinkedList& operator=(const LinkedList&) //assignment operator
+        LinkedList(); //construct empty linkedlist
+        template<typename Iterator>
+        LinkedList(Iterator start, Iterator end); //construct from any iterator range
+        void insertFront(const T& value); //insert at front
+        void insertBack(const T& value); //insert at end 
+        void insert(const T& value, int index); //insert at position
+        void removeFront(); //remove first node
+        void removeBack(); //remove last node (O(n) for singly, O(1) for doubly)
+        void remove(int index); //remove node from a specific position
+        bool get(int index, T& value) const; //safely retrieve value by index
+        int search(const T& value) const; //search element and return index
+        void clear(); //delete all nodes
+        void print() const; //display all contents 
+        int size() const; //return node count
+        bool isEmpty() const; //check whether empty
+        ~LinkedList(); //destructor
+        LinkedList(const LinkedList&); //copy constructor
+        LinkedList& operator=(const LinkedList&); //assignment operator
 };
 ```
-- The insertBack() method uses the tail pointer to achieve O(1) insertion at the end of the list, improving time complexity for common use cases.
+- Compile-Time Polymorphism using IsDoubly template parameter allows the structure to operate as a highly memory-efficient singly linked list (default) for operations like Hash Map chaining, while offering a zero-runtime-overhead toggle to a doubly linked list if fast tail deletions are required in future systems.
+- The template<typename Iterator> constructor allows the list to be safely built from any iterable C++ collection without relying on unpredictable container types.
+- The get() method returns the requested element through a reference parameter and uses a boolean return value to indicate success, avoiding ambiguous sentinel values for invalid indices.
+- The insertBack() method uses the tail pointer to achieve O(1) insertion at the end of the list, improving time complexity for common use cases
 - The search() method returns the index of the found element or -1 if not found, providing more useful information than a simple boolean result.
 - Utility functions such as `remove()`,` clear()`, and `isEmpty()` improve the usability and completeness of the Data Structure.
 
