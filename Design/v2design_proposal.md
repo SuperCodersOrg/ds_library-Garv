@@ -18,7 +18,7 @@ class DynamicArray {
         int size_;
         int capacity_;
         T *data;
-        void resize(int newCapacity); //internal method to resize the underlying array
+        void resize(int newCapacity); //internal method to resize the array
     public:
         DynamicArray() //construct empty array
         explicit DynamicArray(int capacity) //construct an array of given capacity
@@ -71,7 +71,7 @@ class LinkedList {
             Node* next;
             Node(const U& value)
             bool operator==(const Node& other) const { return this->data == other.data; }
-            friend ostream& operator<<(ostream& os, const Node& node) { return os << node.data; }
+            ostream& operator<<(ostream& os, const Node& node) { return os << node.data; }
         };
         // Doubly Linked Node 
         template<typename U>
@@ -81,7 +81,7 @@ class LinkedList {
             Node* prev;
             Node(const U& value)
             bool operator==(const Node& other) const { return this->data == other.data; }
-            friend ostream& operator<<(ostream& os, const Node& node) { return os << node.data; }
+            ostream& operator<<(ostream& os, const Node& node) { return os << node.data; }
         };
         using NodeType = Node<T, IsDoubly>;
         NodeType* head;
@@ -125,9 +125,8 @@ Methods -
 template<typename Key> struct DefaultHash; 
 template<>
 struct DefaultHash<std::string>
-{
-    unsigned int operator()(const std::string& key)
-}
+template<>
+struct DefaultHash<int>
 
 template<typename Key, typename Value, typename Hash = DefaultHash<Key>> 
 class HashMap {
@@ -166,10 +165,8 @@ class HashMap {
 - Includes an internal collision tracker to evaluate hash distribution and the mathematical quality of injected hash functors. 
 
 # Section 2 - Memory Layout
-- Handdrawn diagrams of the memory layout for each data structure are made seperately.
-
 ## DynamicArray
-
+![DynamicArray Memory Layout](DynamicArrayMemoryLayout.jpeg)
 ### Rule of Three:
 - Destructor : Deletes the dynamically allocated array and sets the pointer to nullptr.
 - Copy Constructor : Allocates new memory and performs a deep copy by copying each element from the source array to the new array.
@@ -177,7 +174,7 @@ class HashMap {
 - Shallow copy was not used because both objects would point to the same memory causing double deletion and shared modification issues.
 
 ## LinkedList
-
+![LinkedList Memory Layout](LinkedListMemoryLayout.jpeg)
 ### Rule of Three:
 - Destructor : Traverses the list from head to nullptr and deletes each node.
 - Copy Constructor : Creates a new list by traversing the source list and inserting copies of each node's value into the new list.
@@ -185,7 +182,7 @@ class HashMap {
 - Shallow copy was not used because both lists would share the same nodes leading to double deletion and shared modification issues.
 
 ## Hashmap
-
+![Hashmap Memory Layout](HashmapMemoryLayout.jpeg)
 ### Rule of Three:
 - Destructor : Traverses each bucket and deletes all nodes in the collision chains, then deletes the bucket array.
 - Copy Constructor : Allocates a new bucket array and deep copy each key-value pair from the source Hashmap .
