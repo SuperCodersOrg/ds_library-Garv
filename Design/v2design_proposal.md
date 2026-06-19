@@ -18,8 +18,10 @@ class DynamicArray {
         int size_;
         int capacity_;
         T *data;
+        void resize(int newCapacity); //internal method to resize the underlying array
     public:
         DynamicArray() //construct empty array
+        explicit DynamicArray(int capacity) //construct an array of given capacity
         template<typename Iterator>
         DynamicArray(Iterator start,Iterator end); //construct from any iterable container
         void append(const T& value) //append element
@@ -210,7 +212,7 @@ class HashMap {
 
 **get(int index, T& value) / set(int index, const T& value) / operator[]**
 * **Best / Average / Worst Case:** O(1)
-* **Why:** The index directly calculates the exact memory address (e.g., `base_pointer + (index * size_of_type)`) without requiring any traversal.
+* **Why:** The index directly calculates the exact memory address without requiring any traversal.
 
 **reserve(int newCapacity)**
 * **Best Case:** O(1) (if newCapacity <= current capacity)
