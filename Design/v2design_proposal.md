@@ -123,6 +123,11 @@ Methods -
 
 ```cpp
 template<typename Key> struct DefaultHash; 
+template<>
+struct DefaultHash<std::string>
+{
+    unsigned int operator()(const std::string& key)
+}
 
 template<typename Key, typename Value, typename Hash = DefaultHash<Key>> 
 class HashMap {
@@ -291,7 +296,6 @@ class HashMap {
 # Section 4 – Design Decisions
 
 ### DynamicArray
-* Implemented as a class template (template<typename T>), allowing the same implementation to store arbitrary data types without code duplication.
 * Selected (initial capacity = 0) to avoid unnecessary heap allocation for unused containers.
 * Capacity doubles whenever the array becomes full, providing amortized O(1) append operations.
 * The array shrinks when utilization falls below 25%, improving memory utilization while avoiding excessive reallocations.
@@ -301,19 +305,17 @@ class HashMap {
 ---
 
 ### LinkedList
-* Implemented as a class template so that the linked list can store any copyable data type while preserving the same interface and complexity guarantees.
-* Selected a singly linked representation to reduce per-node memory overhead.
+* Compile-Time Polymorphism Using template specialization allows the list to default to a memory-efficient Singly Linked structure, while offering a toggle for a Doubly Linked structure at compile time with zero runtime branching overhead.
 * Maintained both head and tail pointers, allowing **O(1)** insertion at both the front and back of the list.
 * Stored the current node count as a member variable so that `size()` executes in **O(1)**.
 * Modified `search()` to return the index of the element instead of a boolean value, providing more useful information.
-* A doubly linked list was considered but not selected because the additional backward pointer increases memory usage and implementation complexity. A singly linked list with a tail pointer offers a better balance between simplicity, memory efficiency, and the operations expected from this data structure library..
 
 ---
 
 ### HashMap
-* Implemented as a class template (template<typename Key, typename Value>), allowing arbitrary key-value mappings. The key type is required to support hashing and equality comparison.
+* Static Compile-Time Prime Capacity Array is used instead of Resizing by powers of 2 (e.g., capacity * 2) or calculating prime numbers algorithmically at runtime using a while(!isPrime()) loop because power-of-2 capacities cause severe collision clustering if a user provides a weak hash function, because the modulo operator effectively ignores the higher order bits of the hash. While calculating primes at runtime solves this, it introduces an unacceptable O(n​) CPU stall during the already expensive O(n) rehashing phase. A static prime array resolves both issues, trading ~100 bytes of memory for instantaneous, mathematically safe capacity lookups.
 * Selected separate chaining using linked lists for collision handling because it simplifies deletion and integrates naturally with the LinkedList implementation.
-* Configured the HashMap to rehash when the load factor reaches 0.70, maintaining efficient average-case lookup performance.
+* Configured the HashMap to rehash when the load factor reaches 0.75 in default case, maintaining efficient average-case lookup performance while the load factor can be set by passing the required load factor in the constructor.
 * Added `collisionCount()` to support benchmarking and evaluation of hash distribution during testing.
 * Implemented `get()` using a reference parameter and boolean return value, avoiding ambiguous sentinel values for missing keys.
 * Considered linear probing, but rejected it due to clustering and more complex deletion.
