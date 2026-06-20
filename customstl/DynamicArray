@@ -3,51 +3,59 @@
 #include <iostream>
 using namespace std;
 
+template <typename T>
 class DynamicArray {
 private:
     int size_;
     int capacity_;
-    int *data;
-public:
+    T *data;
+    void resize(int newCapacity)
+    {
+        if(newCapacity<size_)return;
 
-    DynamicArray(){
-        size_ = 0;
-        capacity_ = 0;
-        data = nullptr;
+        T* arr = new T[newCapacity];
+
+        for(int i = 0; i < size_; i++)
+        {
+            arr[i] = data[i];
+        }
+
+        delete[] data;
+
+        data = arr;
+        capacity_ = newCapacity;
+    }
+public:
+    DynamicArray(int cap=0){
+        size_=0;
+        capacity_=cap;
+        data=nullptr;
     }
 
-    void append(int value){
-        //if capacity_ 0
-        if(capacity_==0)
-        {
-            resize(1);
-        }
-        //if full
-        if(size_==capacity_)
-        {
-            resize(capacity_*2);
-        }
+    template <typename Iterator>
+    DynamicArray(Iterator start,Iterator end)
+    {
+        
+    }
+
+    void append(const T& value){
+        //resize
+        if(size_==capacity_)resize(capacity_==0?1:capacity_*2);
         //normally
         data[size_++]=value;
     }
 
-    void insert(int value,int index)
+    void insert(const T& value,int index)
     {
         //indexcheck
         if(index<0 || index>size_)
         {
-            cout<< "Error - Invalid Index";
+            cout<< "Error - Invalid Index"<<endl;
             return;
         }
-        //if capacity_ 0
-        if(capacity_==0)
-        {
-            resize(1);
-        }
-        //if full
         if(size_==capacity_)
         {
-            resize(capacity_*2);
+            resize(capacity_ == 0 ? 1 : capacity_ * 2);
         }
         for(int i=size_;i>index;i--)
         {
@@ -61,7 +69,7 @@ public:
     {
         if(index<0 || index>=size_)
         {
-            cout<< "Error - Invalid Index";
+            cout<< "Error - Invalid Index"<<endl;
             return;
         }
         for(int i=index;i<size_-1;i++)
@@ -72,22 +80,7 @@ public:
         if(capacity_>1 && size_<=capacity_/4)
         resize(capacity_/2);
     }
-    void resize(int newCapacity)
-    {
-        if(newCapacity<size_)return;
-
-        int* arr = new int[newCapacity];
-
-        for(int i = 0; i < size_; i++)
-        {
-            arr[i] = data[i];
-        }
-
-        delete[] data;
-
-        data = arr;
-        capacity_ = newCapacity;
-    }
+    
     //testing purpose
     void print()const
     {
@@ -95,5 +88,12 @@ public:
         {
             cout<<data[i]<<" ";
         }
+    }
+
+    ~DynamicArray()
+    {
+        delete[] data;
+        capacity_=0;
+        size_=0;
     }
 };
