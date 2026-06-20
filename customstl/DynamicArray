@@ -30,6 +30,9 @@ public:
         size_=0;
         capacity_=cap;
         data=nullptr;
+        if (capacity_>0) {
+        data = new T[capacity_];
+    }
     }
 
     template <typename Iterator>
