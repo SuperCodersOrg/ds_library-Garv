@@ -62,8 +62,7 @@ public:
         data = new T[capacity_];
         for(auto it=start;it!=end;it++)
         {
-            if (size_ == capacity_)resize(capacity_ * 2);
-            data[size_++]=*it;
+            append(*it);
         }
     }
 
