@@ -19,10 +19,13 @@ class DynamicArray {
         int capacity_;
         T *data;
         void resize(int newCapacity); //internal method to resize the array
+        void copyfrom(const DynamicArray& other); //internal method to copy from another array
     public:
         DynamicArray(int capacity=0) //construct empty array
         template<typename Iterator>
         DynamicArray(Iterator start,Iterator end); //construct from any iterable container
+        template<typename Container>
+        DynamicArray(const Container& c)
         void append(const T& value) //append element
         void insert(const T& value, int index) //insert at position
         void remove(int index) //remove element

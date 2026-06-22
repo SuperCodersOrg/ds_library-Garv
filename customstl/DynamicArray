@@ -28,6 +28,22 @@ private:
         capacity_ = newCapacity;
     }
 
+    //copy helper
+    void copyfrom(const DynamicArray& arr)
+    {
+        size_=arr.size_;
+        capacity_=arr.capacity_;
+        data=nullptr;
+        if(capacity_>0)
+        {
+            data=new T[capacity_];
+            for(int i=0;i<size_;i++)
+            {
+                data[i]=arr.data[i];
+            }
+        }
+    }
+    
 public:
     //constructor
     DynamicArray(int cap=0){
@@ -46,8 +62,20 @@ public:
         data = new T[capacity_];
         for(auto it=start;it!=end;it++)
         {
-            if (size_ == capacity_)resize(capacity_ * 2);
-            data[size_++]=*it;
+            append(*it);
+        }
+    }
+
+    template<typename Ds>
+    DynamicArray(const Ds& ds)
+    {
+        size_ = 0;
+        capacity_ = 4;
+        data = new T[capacity_];
+
+        for(auto it = ds.begin(); it != ds.end(); ++it)
+        {
+            append(*it);
         }
     }
     
@@ -107,11 +135,12 @@ public:
     }
 
     //to modify an element at the given index
-    void set(int index,T& value)
+    void set(int index,const T& value)
     {
-        if(index<0 || index>=size)
+        if(index<0 || index>=size_)
         {
             cout<<"Invalid Index";
+            return;
         }
         data[index]=value;
     }
@@ -130,12 +159,57 @@ public:
     }
 
     //returns size of the array
-    void size()
+    int size()const
     {
         return size_;
     }
 
+    //return the capacity of the array
+    int capacity()const
+    {
+        return capacity_;
+    }
+
+    //check if the array is empty
+    bool isEmpty()const
+    {
+        if(size_==0)return true;
+        return false;
+    }
+
+    //returns the base address
+    T* begin()
+    {
+        return data;
+    }
+
+    //returns the ending + 1 address
+    T* end()
+    {
+        return data + size_;
+    }
+
+    //returns the base address
+    const T* begin()const 
+    {
+        return data;
+    }
+
+    //returns the ending + 1 address
+    const T* end()const
+    {
+        return data + size_;
+    }
+
+    T& operator[](int index)
+    {
+        return data[index];
+    }
     
+    const T& operator[](int index) const
+    {
+        return data[index];
+    }
 
     //testing purpose
     void print()const
@@ -144,6 +218,25 @@ public:
         {
             cout<<data[i]<<" ";
         }
+    }
+
+    //copy constructor
+    DynamicArray(const DynamicArray& arr)
+    {
+        copyfrom(arr);
+    }
+
+    //assignment operator
+    DynamicArray& operator=(const DynamicArray& arr)
+    {
+        if(this == &arr)
+        {
+            return *this;
+        }
+
+        delete[] data;
+        copyfrom(arr);
+        return *this;
     }
 
     //destructor
