@@ -96,9 +96,11 @@ public:
     }
     
     //to retrieve an element from the dynamic array safely
-    bool get(int index,T& value)
+    bool get(int index,T& value)const
     {
-
+        if(index<0 || index>=size_)return false;
+        value = data[index];
+        return true;
     }
 
     //testing purpose

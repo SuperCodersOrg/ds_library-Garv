@@ -74,7 +74,7 @@ class ForwardList {
         ForwardList(Iterator start, Iterator end); //construct from any iterable container
         void insert(const T& value, int index); //insert at position (O(n))
         void remove(int index); //remove node from a specific position (O(n))
-        bool get(int index, T& value) const; //safely retrieve value by index
+        bool get(const T& value,int index) const; //safely retrieve value by index
         int search(const T& value) const; //search element and return index
         void clear(); //delete all nodes
         void print() const; //display all contents 
