@@ -165,6 +165,12 @@ public:
         return size_;
     }
 
+    //return the capacity of the array
+    int capacity()const
+    {
+        return capacity_;
+    }
+
     //check if the array is empty
     bool isEmpty()const
     {
@@ -196,6 +202,16 @@ public:
         return data + size_;
     }
 
+    T& operator[](int index)
+    {
+        return data[index];
+    }
+    
+    const T& operator[](int index) const
+    {
+        return data[index];
+    }
+
     //testing purpose
     void print()const
     {
@@ -203,16 +219,6 @@ public:
         {
             cout<<data[i]<<" ";
         }
-    }
-
-    T& operator[](int index)
-    {
-        return data[index];
-    }
-
-    const T& operator[](int index) const
-    {
-        return data[index];
     }
 
     //copy constructor
