@@ -29,10 +29,10 @@ private:
     }
 
     //copy helper
-    void copyfrom(const DynamicArray& other)
+    void copyfrom(const DynamicArray& arr)
     {
-        size_=other.size_;
-        capacity_=other.capacity_;
+        size_=arr.size_;
+        capacity_=arr.capacity_;
         data=nullptr;
         if(capacity_>0)
         {
@@ -203,6 +203,16 @@ public:
         {
             cout<<data[i]<<" ";
         }
+    }
+
+    T& operator[](int index)
+    {
+        return data[index];
+    }
+
+    const T& operator[](int index) const
+    {
+        return data[index];
     }
 
     //copy constructor
