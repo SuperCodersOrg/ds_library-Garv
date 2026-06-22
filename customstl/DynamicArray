@@ -9,6 +9,7 @@ private:
     int size_;
     int capacity_;
     T *data;
+    //resize helper
     void resize(int newCapacity)
     {
         if(newCapacity<size_)return;
@@ -26,18 +27,28 @@ private:
         capacity_ = newCapacity;
     }
 public:
+    //constructor
     DynamicArray(int cap=0){
         size_=0;
         capacity_=cap;
         data=nullptr;
+        if (capacity_>0)data = new T[capacity_];
     }
-
+     
+    //make a dynamic array through any iterable data structure
     template <typename Iterator>
     DynamicArray(Iterator start,Iterator end)
     {
-        
+        size_=0;
+        capacity_=4;
+        data = new T[capacity_];
+        for(auto it=start;it!=end;it++)
+        {
+            if (size_ == capacity_)resize(capacity_ * 2);
+            data[size_++]=*it;
+        }
     }
-
+    //add an element to the end
     void append(const T& value){
         //resize
         if(size_==capacity_)resize(capacity_==0?1:capacity_*2);
@@ -45,6 +56,7 @@ public:
         data[size_++]=value;
     }
 
+    //add an element at the given index
     void insert(const T& value,int index)
     {
         //indexcheck
@@ -65,6 +77,7 @@ public:
         size_++;
     }
 
+    //remove an element from the given index
     void remove(int index)
     {
         if(index<0 || index>=size_)
@@ -77,10 +90,17 @@ public:
             data[i]=data[i+1];
         }
         size_--;
-        if(capacity_>1 && size_<=capacity_/4)
+        //shrink by /2 if less then 25%
+        if(capacity_>4 && size_<capacity_/4)
         resize(capacity_/2);
     }
     
+    //to retrieve an element from the dynamic array safely
+    bool get(int index,T& value)
+    {
+
+    }
+
     //testing purpose
     void print()const
     {
@@ -90,6 +110,7 @@ public:
         }
     }
 
+    //destructor
     ~DynamicArray()
     {
         delete[] data;
