@@ -19,7 +19,6 @@ class DynamicArray {
         int capacity_;
         T *data;
         void resize(int newCapacity); //internal method to resize the array
-        void copyfrom(const DynamicArray& other); //internal method to copy from another array
     public:
         DynamicArray(int capacity=0) //construct empty array
         template<typename Iterator>
@@ -42,6 +41,8 @@ class DynamicArray {
         DynamicArray& operator=(const DynamicArray&) //assignment operator
 };
 ```
+
+- The array doubles its capacity when full and shrinks when utilization falls below 25%, balancing memory efficiency with performance doubling it results in amortized O(1) append operations, while shrinking prevents excessive memory usage.
 - The get() method returns the requested element through a reference parameter and uses a boolean return value to indicate success, avoiding ambiguous sentinel values for invalid indices.  
 - The reserve() method enables preallocation of storage when the expected number of elements is known, reducing the number of reallocations during repeated insertions.  
 - A dedicated set() method separates modification from insertion operations.  

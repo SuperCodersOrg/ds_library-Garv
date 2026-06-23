@@ -1,7 +1,6 @@
 #pragma once
 
 #include <iostream>
-using namespace std;
 
 template <typename T>
 class DynamicArray {
@@ -93,7 +92,7 @@ public:
         //indexcheck
         if(index<0 || index>size_)
         {
-            cout<< "Error - Invalid Index"<<endl;
+            std::cout<< "Error - Invalid Index"<<endl;
             return;
         }
         if(size_==capacity_)
@@ -113,7 +112,7 @@ public:
     {
         if(index<0 || index>=size_)
         {
-            cout<< "Error - Invalid Index"<<endl;
+            std::cout<< "Error - Invalid Index"<<endl;
             return;
         }
         for(int i=index;i<size_-1;i++)
@@ -139,7 +138,7 @@ public:
     {
         if(index<0 || index>=size_)
         {
-            cout<<"Invalid Index";
+            std::cout<<"Invalid Index";
             return;
         }
         data[index]=value;
@@ -216,7 +215,7 @@ public:
     {
         for(int i=0;i<size_;i++)
         {
-            cout<<data[i]<<" ";
+            std::cout<<data[i]<<" ";
         }
     }
 
