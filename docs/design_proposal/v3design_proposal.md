@@ -211,6 +211,7 @@ class LinkedList {
 It uses separate chaining using linkedlist for handling collisions and DynamicArray to manage the bucket table. It has an  hashing functor and a configurable load factor, allowing the user to change memory and performance tradeoffs based on their specific dataset.
 Methods - 
 
+## Public API -
 ```cpp
 template<typename Key> struct DefaultHash; //an empty blueprint for hashing 
 template<>
@@ -250,7 +251,17 @@ class HashMap {
 - Uses an injectable functor for custom data types.
 - Constructor accepts custom capacities and load factors, allowing systems to explicitly tune the tradeoff between memory footprint and guaranteed O(1) lookup speeds.
 
-### Complexity Estimates - 
+## Internal Representation - 
+
+![HashMap](HashmapMemoryLayout.jpeg)
+
+### Rule of Three:
+- Destructor : Traverses each bucket and deletes all nodes in the collision chains, then deletes the bucket array.
+- Copy Constructor : Allocates a new bucket array and deep copy each key-value pair from the source Hashmap .
+- Assignment Operator : Deletes the existing HashMap, allocates a new bucket array & deep copy each key-value pair from the source HashMap.
+- Shallow copy was not used because both HashMaps would share the same bucket array and linked lists, leading to double deletion and shared modification issues.
+
+## Complexity Estimates - 
 
 **set(const Key& key, const Value& value)**
 * **Best / Average Case:** O(1)
@@ -279,7 +290,7 @@ class HashMap {
 * **Best / Average / Worst Case:** O(1)
 * **Why:** These methods perform basic arithmetic or simply return tracked primitive state variables, independent of the volume of data stored in the map.
 
-### HashMap
+## Design Decisions -
 * Prime Capacity Array is used instead of Resizing by powers of 2 (capacity * 2) or calculating prime numbers algorithmically at runtime using a while(!isPrime()) loop because power-of-2 capacities cause severe collision clustering if a user provides a weak hash function, because the modulo operator effectively ignores the higher order bits of the hash. While calculating primes at runtime solves this it introduces an unacceptable O(n​) CPU stall during the already expensive O(n) rehashing phase. A static prime array resolves both issues, trading ~100 bytes of memory for instantaneous& mathematically safe capacity lookups.
 * Selected separate chaining using linked lists for collision handling because it simplifies deletion and integrates naturally with the LinkedList implementation.
 * Configured the HashMap to rehash when the load factor reaches 0.75 in default case, maintaining efficient average-case lookup performance while the load factor can be set by passing the required load factor in the constructor.
