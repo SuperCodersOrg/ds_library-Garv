@@ -53,21 +53,26 @@ private:
         }
     }
 
+    //just to not repeat code in every constructor
+    void init(){
+        size_=0;
+        capacity_=0;
+        data=nullptr;
+    }
 
 public:
 //constructors -
 
     //constructor
     DynamicArray(){
-        size_=0;
-        capacity_=0;
-        data=nullptr;
+        init();
     }
     
     //capacity constructor
     DynamicArray(int cap){
         size_=0;
-        capacity_=cap;
+        if(cap>=0)capacity_=cap;
+        else capacity_=0;
         if(capacity_>0)
         {
             data = static_cast<T*>(malloc(sizeof(T)*capacity_));
@@ -80,6 +85,7 @@ public:
 
     //copy constructor to pass an array and make a copy
     DynamicArray(const DynamicArray& other){
+        init();
         deepcopy(other);
     }
     
@@ -92,7 +98,25 @@ public:
         return *this;
     }
 
+    //constructor to create a dynamic array from an iterable data structure if passed using begin,end addresses
+    template<typename Iterator>
+    DynamicArray(Iterator start,Iterator end){
+        init();
+        for(auto it = start;it!=end;it++)
+        {
+            append(*it);
+        }
+    }
 
+    //constructor to create a dynamic array from an iterable data structure if passed directly
+    template<typename Ds>
+    DynamicArray(const Ds& ds){
+        init();
+        for(auto it=ds.begin();it!=ds.end();it++)
+        {
+            append(*it);
+        }
+    }
 //methods - 
 
     //to add an element at the last index
@@ -102,12 +126,69 @@ public:
         size_++;
     }
 
+    void clear(){
+        destroyElements();
+        size_=0;
+    }
+
     //returns number of elements
     int size()const{
         return size_;
     }
 
-    //testing purpose - 
+    //safe retrieval to elements at the given index
+    bool get(int index,T& value)const{
+        if(index<0 || index>=size_ )return false;
+        value = data[index];
+        return true;
+    }
+
+    //to modify elements at the given index (parameter const to let Rvalue be passed to it too)
+    void set(int index,const T& value)const{
+        if(index<0 || index>=size_ ){
+            std::cout<<"Invalid Index";
+            return;
+        }
+        data[index]=value;
+    }
+
+    //to insert an element to the given index
+    void insert(int index,const T& value){
+        if(index<0 || index>size_ )
+        {
+            std::cout<<"Invalid Index";
+            return;
+        }
+        if(size_==capacity_)resize(capacity_==0?1:capacity_*2);
+        if(index==size_)append(value);
+        new (data + size_) T(data[size_-1]);
+        for(int i=size_-1;i>index;i--)
+        {
+            data[i]=data[i-1];
+        }       
+        data[index]=value;
+        size_++;
+    }
+
+    void remove(int index)
+    {
+        
+    }
+
+    //access elements using [] , & is used to return a reference so using arr[10]=100 would be changeable
+    T& operator[](int index){
+        return data[index];
+    }
+
+    //read only []
+    const T& operator[](int index)const {
+        return data[index];
+    }
+    
+
+
+
+//testing purpose - 
     //returns number if elements that can fit into the array
     int capacity()const{
         return capacity_;

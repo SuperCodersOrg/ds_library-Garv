@@ -17,14 +17,19 @@ class DynamicArray {
         int capacity_;
         T *data;
         void resize(int newCapacity); //internal method to resize the array
+        void destroyelement(); //internal method to destroy elements
+        void deepcopy(const DynamicArray& other); //internal method to copy elements from another DynamicArray
+        void init(); //internal method to initialize the array to reduce redudancy in constructors
     public:
-        DynamicArray(int capacity=0) //construct empty array
+        DynamicArray() //construct empty array
+        DynamicArray(int cap) //construct with initial capacity
         template<typename Iterator>
         DynamicArray(Iterator start,Iterator end); //construct from any iterable container
         template<typename Ds> //construct from any Data structure that supports iteration
         DynamicArray(const Ds& ds)
         void append(const T& value) //append element
-        void insert(const T& value, int index) //insert at position
+        void insert(int index,const T& value) //insert at position
+
         void remove(int index) //remove element
         bool get(int index,T& value) const //returns value safely
         void set(int index,const T& value) // modify value at given index
@@ -34,6 +39,7 @@ class DynamicArray {
         bool isEmpty() const //check whether empty
         T* begin() //return pointer to first element
         T* end() //return pointer to one past last element
+        
         ~DynamicArray() //destructor
         DynamicArray(const DynamicArray&) //copy constructor
         DynamicArray& operator=(const DynamicArray&) //assignment operator

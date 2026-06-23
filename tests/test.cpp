@@ -1,5 +1,6 @@
 #include <DynamicArray>
 #include <iostream>
+#include <vector>
 
 using namespace std;
 
@@ -22,15 +23,20 @@ int main()
     cout<<endl;
     e=d;
     e.print();
-    DynamicArray<int> a;
-    a.append(1);
-    a.append(1);
-    a.append(1);
-    a.append(1);
-    a.append(1);
-    a.append(5);
-    a.append(10);
-    a.append(10);
-    a.append(10000000);
+    DynamicArray<int> a(100);
+    cout<<a.capacity();
+    vector<int> v={1,2,3,4,5};
+    DynamicArray<int> b(v);
+    DynamicArray<int> c(v.begin(),v.end());
     a.print();
+    b.print();
+    c.print();
+    c[100]=10;
+    int y,z;
+    c.get(1,y);
+    cout<<y<<" "<<z;
+    c.set(1,10);
+    c.get(1,y);
+    cout<<y;
+    cout<<endl;
 }
