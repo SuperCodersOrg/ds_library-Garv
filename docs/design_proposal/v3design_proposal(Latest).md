@@ -7,6 +7,7 @@ The proposed design supports explicit memory ownership. For the Design choices i
 
 # Dynamic Array -
 The DynamicArray manages a contiguous block of heap memory manually. Memory is allocated when capacity changes and released when the DynamicArray is destroyed. Existing elements are copied into the new allocation during resizing. 
+* It gives amortized O(1) time complexity for appending elements due to the doubling so this happens because array only doubles at powers of 2 which means that the number of operations needed would be n operations to insert n elements and (n-1) operations to copy elements during resizing  giving a total of 2n-1 operations which is for n element so for a single element it is 2n-1/n which is 2 and this can be called O(1) amortized time complexity.
 ## Public API - 
 ```cpp
 template<typename T> //generic type parameter for any type of element
@@ -16,14 +17,21 @@ class DynamicArray {
         int capacity_;
         T *data;
         void resize(int newCapacity); //internal method to resize the array
+        void destroy(); //internal method to destroy elements
+        void deepcopy(const DynamicArray& other); //internal method to copy elements from another DynamicArray
+        void init(); //internal method to initialize the array to reduce redudancy in constructors
+        void construct(T* ptr,const T& value); //internal method to construct elements in the array
+        T* allocate(int newCapacity); //internal method to allocate memory for the array
     public:
-        DynamicArray(int capacity=0) //construct empty array
+        DynamicArray() //construct empty array
+        DynamicArray(int cap) //construct with initial capacity
         template<typename Iterator>
         DynamicArray(Iterator start,Iterator end); //construct from any iterable container
         template<typename Ds> //construct from any Data structure that supports iteration
         DynamicArray(const Ds& ds)
         void append(const T& value) //append element
-        void insert(const T& value, int index) //insert at position
+        void insert(int index,const T& value) //insert at position
+
         void remove(int index) //remove element
         bool get(int index,T& value) const //returns value safely
         void set(int index,const T& value) // modify value at given index
@@ -33,6 +41,7 @@ class DynamicArray {
         bool isEmpty() const //check whether empty
         T* begin() //return pointer to first element
         T* end() //return pointer to one past last element
+        
         ~DynamicArray() //destructor
         DynamicArray(const DynamicArray&) //copy constructor
         DynamicArray& operator=(const DynamicArray&) //assignment operator

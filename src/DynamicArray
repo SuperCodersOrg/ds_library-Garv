@@ -1,6 +1,9 @@
 #pragma once
 
 #include <iostream>
+#include <cstdlib>
+#include <new>
+#include <stdexcept>
 
 template <typename T>
 class DynamicArray {
@@ -8,241 +11,323 @@ private:
     int size_;
     int capacity_;
     T *data;
+//helper methods - 
 
-    //resize helper
-    void resize(int newCapacity)
-    {
-        if(newCapacity<size_)return;
-
-        T* arr = new T[newCapacity];
-
-        for(int i = 0; i < size_; i++)
+    //method to manually call destructors for each element in the array
+    void destroy(){
+        for(int i=0;i<size_;i++)
         {
-            arr[i] = data[i];
+            (data+i)->~T();
         }
-
-        delete[] data;
-
-        data = arr;
-        capacity_ = newCapacity;
     }
 
-    //copy helper
-    void copyfrom(const DynamicArray& arr)
-    {
-        size_=arr.size_;
-        capacity_=arr.capacity_;
-        data=nullptr;
-        if(capacity_>0)
-        {
-            data=new T[capacity_];
-            for(int i=0;i<size_;i++)
+    //internal method to resize the array whenever needed
+    void resize(int newcap){
+        if(newcap<size_)return;
+        //grabs raw memory in void* and then cast it into T* pointer
+        T* newData = allocate(newcap);
+        int i=0;
+        try{
+            for(;i<size_;i++)
             {
-                data[i]=arr.data[i];
+                //creates new objects using placement new in the memory
+                construct(newData+i,data[i]);
             }
         }
-    }
-    
-public:
-    //constructor
-    DynamicArray(int cap=0){
-        size_=0;
-        capacity_=cap;
-        data=nullptr;
-        if (capacity_>0)data = new T[capacity_];
-    }
-     
-    //make a dynamic array through any iterable data structure
-    template <typename Iterator>
-    DynamicArray(Iterator start,Iterator end)
-    {
-        size_=0;
-        capacity_=4;
-        data = new T[capacity_];
-        for(auto it=start;it!=end;it++)
-        {
-            append(*it);
+        catch(...){
+            for(int j=0;j<i;j++)
+            {
+                 (newData + j)->~T();   
+            }
+            free(newData);
+            throw;
         }
+        //destroy old objs
+        destroy();
+        free(data);
+        data=newData;
+        capacity_=newcap;
     }
 
-    template<typename Ds>
-    DynamicArray(const Ds& ds)
-    {
-        size_ = 0;
-        capacity_ = 4;
-        data = new T[capacity_];
-
-        for(auto it = ds.begin(); it != ds.end(); ++it)
+    //method to perform a deepcopy
+    void deepcopy(const DynamicArray& other){
+        size_=other.size_;
+        capacity_=other.capacity_;
+        if(capacity_==0)
         {
-            append(*it);
-        }
-    }
-    
-    //add an element to the end
-    void append(const T& value){
-        //resize
-        if(size_==capacity_)resize(capacity_==0?1:capacity_*2);
-        //normally
-        data[size_++]=value;
-    }
-
-    //add an element at the given index
-    void insert(const T& value,int index)
-    {
-        //indexcheck
-        if(index<0 || index>size_)
-        {
-            std::cout<< "Error - Invalid Index"<<endl;
+            data=nullptr;
             return;
         }
-        if(size_==capacity_)
-        {
-            resize(capacity_ == 0 ? 1 : capacity_ * 2);
+        data=allocate(capacity_);
+        int i=0;
+        try{
+            for(;i<size_;i++)
+            {
+                construct(data+i,other.data[i]);
+            }
         }
-        for(int i=size_;i>index;i--)
+        catch(...){
+            for(int j=0;j<i;j++)
+            {
+                (data+j)->~T();
+            }
+            free(data);
+            data=nullptr;
+            size_=0;
+            capacity_=0;
+            throw;
+        }
+    }
+
+    //just to not repeat code in every constructor
+    void init(){
+        size_=0;
+        capacity_=0;
+        data=nullptr;
+    }
+
+    //function to call malloc and handle bad alloc exceptions as malloc does not throw an error but return a nullptr
+    T* allocate(int cap){
+        if(cap==0)return nullptr;
+        void *rawMemory = malloc(sizeof(T)*cap);
+        if(rawMemory==nullptr)throw std::bad_alloc();
+        return static_cast<T*> (rawMemory);
+    }
+
+    //to construct an obj at the given ptr with the provided value
+    void construct(T* ptr,const T& value){
+        new(ptr) T(value);
+    }
+
+    void destroyobj(T* ptr){
+        ptr->~T();
+    }
+
+public:
+//constructors -
+
+    //constructor
+    DynamicArray(){
+        init();
+    }
+    
+    //capacity constructor
+    DynamicArray(int cap){
+        size_=0;
+        if(cap>=0)capacity_=cap;
+        else capacity_=0;
+        if(capacity_>0)
+        {
+            data = allocate(capacity_);
+        }
+        else
+        {
+            data=nullptr;
+        }
+    }
+
+    //copy constructor to pass an array and make a copy
+    DynamicArray(const DynamicArray& other){
+        init();
+        deepcopy(other);
+    }
+    
+    //helper function for =operator 
+    void swap(DynamicArray& other) {
+        int ts = size_;
+        size_ = other.size_;
+        other.size_ = ts;
+
+        // Swap capacities
+        int tc = capacity_;
+        capacity_ = other.capacity_;
+        other.capacity_ = tc;
+
+        // Swap data pointers
+        T* temp = data;
+        data = other.data;
+        other.data = temp;
+    }
+
+    //assignment operator to use = operator to deepcopy that object
+    DynamicArray& operator=(const DynamicArray&other){
+        if(this == &other)return *this;
+        DynamicArray temp(other);
+        //runs destructors for our old dynamic array when temp goes out of scope
+        this->swap(temp);
+        return *this;
+    }
+
+    //constructor to create a dynamic array from an iterable data structure if passed using begin,end addresses
+    template<typename Iterator>
+    DynamicArray(Iterator start,Iterator end){
+        init();
+        for(auto it = start;it!=end;it++)
+        {
+            append(*it);
+        }
+    }
+
+    //constructor to create a dynamic array from an iterable data structure if passed directly
+    template<typename Ds>
+    DynamicArray(const Ds& ds){
+        init();
+        for(auto it=ds.begin();it!=ds.end();it++)
+        {
+            append(*it);
+        }
+    }
+//methods - 
+
+    //to add an element at the last index
+    void append(const T& value){
+        if(size_==capacity_)resize(capacity_==0?1:capacity_*2);
+        construct(data+size_,value);
+        size_++;
+    }
+
+    void clear(){
+        destroy();
+        size_=0;
+    }
+
+    //returns number of elements
+    int size()const{
+        return size_;
+    }
+
+    //safe retrieval to elements at the given index
+    bool get(int index,T& value)const{
+        if(index<0 || index>=size_ )return false;
+        value = data[index];
+        return true;
+    }
+
+    //to modify elements at the given index (parameter const to let Rvalue be passed to it too)
+    void set(int index,const T& value){
+        if(index<0 || index>=size_ ){
+            throw std::out_of_range("DynamicArray: Invalid Index");
+            return;
+        }
+        data[index]=value;
+    }
+
+    //to insert an element to the given index
+    void insert(int index,const T& value){
+        if(index<0 || index>size_ )
+        {
+            throw std::out_of_range("DynamicArray: Invalid Index");
+            return;
+        }
+        if(size_==capacity_)resize(capacity_==0?1:capacity_*2);
+        if(index==size_)
+        {
+            append(value);
+            return;
+        }
+        //make copy of the last element at size index
+        construct(data+size_,data[size_-1]);
+        for(int i=size_-1;i>index;i--)
         {
             data[i]=data[i-1];
-        }
+        }       
         data[index]=value;
         size_++;
     }
 
-    //remove an element from the given index
-    void remove(int index)
-    {
-        if(index<0 || index>=size_)
+    //to remove element from the given index
+    void remove(int index){
+        if(index<0 || index>=size_ )
         {
-            std::cout<< "Error - Invalid Index"<<endl;
+            throw std::out_of_range("DynamicArray: Invalid Index");
             return;
         }
         for(int i=index;i<size_-1;i++)
         {
             data[i]=data[i+1];
         }
+        (data+size_-1)->~T();
         size_--;
-        //shrink by /2 if less then 25%
         if(capacity_>4 && size_<capacity_/4)
-        resize(capacity_/2);
-    }
-    
-    //to retrieve an element from the dynamic array safely
-    bool get(int index,T& value)const
-    {
-        if(index<0 || index>=size_)return false;
-        value = data[index];
-        return true;
+        {
+            resize(capacity_/2);
+        }
     }
 
-    //to modify an element at the given index
-    void set(int index,const T& value)
-    {
-        if(index<0 || index>=size_)
+    //to check if the array is empty
+    bool isEmpty()const{
+        return size_==0;
+    }
+
+    //preallocate memory if needed without increasing size
+    void reserve(int newcap){
+        if(newcap<=capacity_)return;
+        resize(newcap);
+    }
+
+    //to deallocate memory not in use to the size of the array
+    void shrinktosize(){
+        if(size_==capacity_)return;
+        if(size_ == 0)
         {
-            std::cout<<"Invalid Index";
+            destroy();
+            free(data);
+            data = nullptr;
+            capacity_ = 0;
             return;
         }
-        data[index]=value;
+        resize(size_);
     }
 
-    //to preallocate memory for the dynamic array
-    void reserve(int newCapacity_)
-    {
-        if(capacity_>newCapacity_)return;
-        resize(newCapacity_);
+    //access elements using [] , & is used to return a reference so using arr[10]=100 would be changeable
+    T& operator[](int index){
+        return data[index];
     }
 
-    //to remove all the elements
-    void clear()
-    {
-        size_=0;
+    //read only []
+    const T& operator[](int index)const {
+        return data[index];
     }
 
-    //returns size of the array
-    int size()const
-    {
-        return size_;
+    //to return the starting address 
+    T* begin(){
+        return data;
+    }
+    //const begin - 
+    const T* begin()const{
+        return data;
     }
 
-    //return the capacity of the array
-    int capacity()const
-    {
+    //to return address of the location next of end
+    T* end(){
+        return data+size_;
+    }
+    //const end
+    const T* end()const{
+        return data+size_;
+    }
+
+//testing purpose - 
+    //returns number if elements that can fit into the array
+    int capacity()const{
         return capacity_;
     }
-
-    //check if the array is empty
-    bool isEmpty()const
-    {
-        if(size_==0)return true;
-        return false;
-    }
-
-    //returns the base address
-    T* begin()
-    {
-        return data;
-    }
-
-    //returns the ending + 1 address
-    T* end()
-    {
-        return data + size_;
-    }
-
-    //returns the base address
-    const T* begin()const 
-    {
-        return data;
-    }
-
-    //returns the ending + 1 address
-    const T* end()const
-    {
-        return data + size_;
-    }
-
-    T& operator[](int index)
-    {
-        return data[index];
-    }
-    
-    const T& operator[](int index) const
-    {
-        return data[index];
-    }
-
-    //testing purpose
-    void print()const
-    {
+    //prints all the elements in the existing array
+    void print()const{
         for(int i=0;i<size_;i++)
         {
             std::cout<<data[i]<<" ";
         }
-    }
-
-    //copy constructor
-    DynamicArray(const DynamicArray& arr)
-    {
-        copyfrom(arr);
-    }
-
-    //assignment operator
-    DynamicArray& operator=(const DynamicArray& arr)
-    {
-        if(this == &arr)
-        {
-            return *this;
-        }
-
-        delete[] data;
-        copyfrom(arr);
-        return *this;
+        std::cout<<std::endl;
     }
 
     //destructor
-    ~DynamicArray()
-    {
-        delete[] data;
-        capacity_=0;
+    ~DynamicArray(){
+        destroy();
+        free(data);
+        data=nullptr;
         size_=0;
+        capacity_=0;
     }
 };
+
