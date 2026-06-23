@@ -9,4 +9,6 @@ int main()
     l.insert(1,12);
     l.insert(3,13);
     l.print();
+    l.clear();
+    l.print();
 }

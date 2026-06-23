@@ -87,8 +87,7 @@ class SinglyList {
         }
 
         //helper function for assignment operator
-        void swap(SinglyList& other)
-        {
+        void swap(SinglyList& other){
             Node* h=head;
             head=other.head;
             other.head=h;
@@ -109,8 +108,24 @@ class SinglyList {
             //temp goes out of scope and temp list destructor runs
             return *this;
         }
-    //     template<typename Iterator>
-    //     SinglyList(Iterator start, Iterator end); //construct from any iterable container
+
+        //construct list from any iterable data structure
+        template<typename Iterator>
+        SinglyList(Iterator start, Iterator end){
+            init();
+            try{
+            for(auto it:start;it!=end;i++)
+            {
+                insert(count,*it);
+            }
+            }
+            catch(...)
+            {
+                clear();
+                throw;
+            }
+        }
+
     //methods - 
         //insert node at given index
         void insert( int index,const T& value){
@@ -148,11 +163,63 @@ class SinglyList {
         }
 
         //remove at given index
-        // void remove(int index){
+        void remove(int index){
+            if(index<0 || index>count)throw std::out_of_range("SinglyList:INVALID INDEX");
+            //singlenode
+            if(count==1)
+            {
+                destruct(head);
+                head=nullptr;
+                tail=nullptr;
+                count=0;
+                return;
+            }
+            //remove front
+            if(index==0)
+            {
+                Node* front = head;
+                head = head->next;
+                destruct(front);
+                count--;
+                return;
+            }
+            Node* temp = head;
+            for(int i=0;i<index-1;i++){
+                temp=temp->next;
+            }
+            Node* delnode = temp->next;
+            temp->next = delnode->next;
+            //remove end
+            if(delnode == tail)tail=temp;
+            destruct(delnode);
+            count--;
+        }
 
-        // }
-    //     bool get(const T& value,int index) const; //safely retrieve value by index
-    //     int search(const T& value) const; //search element and return index
+        //to retrieve value safely
+        bool get(int index,T& value) const{
+            if(index<0 || index>=count)return false;
+            Node* curr = head;
+            for(int i=0;i<index;i++)
+            {
+                curr=curr->next;
+            }
+            value=curr->data;
+            return true;
+        }
+
+        //search element and return index
+        int search(const T& value) const{
+            Node* curr = head;
+            int index=0;
+            while(curr)
+            {
+                if(curr->data==value)return index;
+                curr=curr->next;
+                index++;
+            }
+            return -1;
+        }
+        
         //delete all nodes
         void clear(){
             Node* current =head;
@@ -186,10 +253,9 @@ class SinglyList {
         bool isEmpty() const{
             return head==nullptr;
         }
-        
+
         //destructor 
-        ~SinglyList()
-        {
+        ~SinglyList(){
             clear();
         }
 };
