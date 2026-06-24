@@ -32,7 +32,6 @@ class DynamicArray {
         DynamicArray(const Ds& ds)
         void append(const T& value) //append element
         void insert(int index,const T& value) //insert at position
-
         void remove(int index) //remove element
         bool get(int index,T& value) const //returns value safely
         void set(int index,const T& value) // modify value at given index
@@ -237,9 +236,9 @@ class HashMap {
         };
         DynamicArray<Node*> buckets; //It is an array where every slot holds a chain of boxes (Nodes)
         double loadFactor; //threshold to trigger rehashing
-        int elementCount; /
+        int elementCount; 
         int primeindex; 
-        static constexpr int PRIME_SIZES[] //takes some memory - giving O(1) lookup for next prime size 
+        int PRIME_SIZES[] //takes some memory - giving O(1) lookup for next prime size 
         int getBucketIndex(const Key& key) const //internal method to compute bucket index using the hash functor
     public:
         HashMap(int initialBucketCount = 13, double loadFactor = 0.75); //construct with bucket count and load factor

@@ -150,7 +150,7 @@ class HashMap {
         double loadFactor; //threshold to trigger rehashing
         int elementCount; /
         int primeindex; 
-        static constexpr int PRIME_SIZES[] //takes some memory - giving O(1) lookup for next prime size 
+        static constexpr nit PRIME_SIZES[] //takes some memory - giving O(1) lookup for next prime size 
         int getBucketIndex(const Key& key) const //internal method to compute bucket index using the hash functor
     public:
         HashMap(int initialBucketCount = 13, double loadFactor = 0.75); //construct with bucket count and load factor
