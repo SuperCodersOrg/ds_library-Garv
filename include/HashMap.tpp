@@ -4,8 +4,8 @@
     #include <stdexcept>
     #include <HashMap.h>
 
-    template<typename T>
     //hashes based on their memory address treating them as huge integers
+    template<typename T>
     size_t DefaultHash<T>::operator()(const T& val)const{
         std::uintptr_t addr = reinterpret_cast<std::uintptr_t>(&val);
         addr^=(addr>>16); 
