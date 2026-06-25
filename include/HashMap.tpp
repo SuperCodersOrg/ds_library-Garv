@@ -4,8 +4,8 @@
     #include <stdexcept>
     #include <HashMap.h>
 
-    template<typename T>
     //hashes based on their memory address treating them as huge integers
+    template<typename T>
     size_t DefaultHash<T>::operator()(const T& val)const{
         std::uintptr_t addr = reinterpret_cast<std::uintptr_t>(&val);
         addr^=(addr>>16); 
@@ -220,5 +220,17 @@
             if(buckets[i].size() > 1)c += buckets[i].size() - 1;
         }
         return c;
+    }
+
+    //to print all elements
+    template<typename Key,typename Value,typename Hash>
+    void HashMap<Key,Value,Hash>::print() const{
+        for(int i=0;i<bucketcount;i++)
+        {
+            SinglyList<Entry>& bucket = buckets[i];
+            for(int j=0;j<bucket.size();j++){
+                std::cout<<bucket[i].key<<" "<<bucket[i].value<<endl;
+            }
+        }
     }
 

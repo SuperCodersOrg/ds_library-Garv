@@ -1,0 +1,196 @@
+#pragma once
+#include <iostream>
+#include <HashMap>
+#include <string>
+#include <sstream>
+
+class Redis{
+    public:
+    void run(){
+        std::string line;
+        std::cout<<"===================================== Welcome to Redis Lite CLI ====================================="<<endl;
+        printcommands();
+        while(true)
+        {
+            std::cout<<"->";
+            if(!std::getline(std::cin,line))
+            break;
+
+            if(line.empty())continue;
+
+            std::stringstream ss(line);
+
+            std::string command;
+            ss>>command;
+
+            if(command=="SET")
+            {
+                handleSet(ss);
+            }
+            else if(command=="GET")
+            {
+                handleGet(ss);
+            }
+            else if(command=="DEL")
+            {
+                handleDel(ss);
+            }
+            else if(command=="EXISTS")
+            {
+                handleExists(ss);
+            }
+            else if(command=="COUNT")
+            {
+                handleCount();
+            }
+            else if(command=="CLEAR")
+            {
+                handleClear();
+            }
+            else if(command=="EXIT")
+            {
+                break;
+            }
+            else if(command=="STATS")
+            {
+                stats();
+            }
+            else if(command == "DEBUG")
+            {
+                printdebug();
+            }
+            else if(command == "PRINT")
+            {
+                print();
+            }
+            else if(command=="HELP")
+            {
+                printcommands();
+            }
+            else
+            {
+                std::cout<<"Unknown Command";
+            }
+
+        }
+    }
+    private:
+    HashMap<string,string> storage;
+    //to print commands again
+    void printcommands(){
+        std::string line;
+        std::cout<<"Commands - "<<endl;
+        std::cout<<"SET key value"<<endl;
+        std::cout<<"GET key"<<endl;
+        std::cout<<"DEL key"<<endl;
+        std::cout<<"EXISTS key"<<endl;
+        std::cout<<"COUNT key"<<endl;
+        std::cout<<"CLEAR key"<<endl;
+        std::cout<<"STATS"<<endl;
+        std::cout<<"PRINT"<<endl;
+        std::cout<<"DEBUG"<<endl;
+        std::cout<<"EXIT"<<endl<<endl;
+
+    }
+    void handleSet(std::stringstream& ss)
+    {
+        std::string key,value;
+        ss>>key;
+        std::getline(ss,value);
+        //remove heading spcae
+        if(!value.empty() && value[0]==' ')value.erase(0,1);
+        if(key.empty()||value.empty())
+        {
+            std::cout<<"To make an entry use - SET <key> <value>"<<endl;
+            return;
+        }
+
+        storage.insert(key,value);
+        cout<<"Done"<<endl;
+    }
+
+    void handleGet(std::stringstream& ss)
+    {
+        std::string key;
+        ss>>key;
+        if(key.empty())
+        {
+            std::cout<<"To get a value from key use - GET <key>"<<endl;
+            return;
+        }
+        std::string value;
+        if(storage.get(key,value))std::cout<<value<<endl;
+        else
+        {
+            std::cout<<"Not Found"<<endl;
+        }
+    }
+
+    void handleDel(std::stringstream& ss)
+    {
+        std::string key;
+        ss>>key;
+        if(key.empty())
+        {
+            std::cout<<"To delete a key use - DEL <key>"<<endl;
+            return;
+        }
+        if(storage.exists(key))
+        {
+            storage.remove(key);
+            std::cout<<"Deleted"<<endl;
+        }
+        else std::cout<<"Not found"<<endl;
+    }
+
+    void handleExists(std::stringstream& ss)
+    {
+        std::string key;
+        ss>>key;
+        if(key.empty())
+        {
+            std::cout<<"To check if a key exists use - EXISTS <key>"<<endl;
+                return;
+        }
+        if(storage.exists(key))
+        {
+            std::cout<<"True"<<endl;
+        }
+        else
+        {
+            std::cout<<"False"<<endl;
+        }
+    }
+    //element count
+    void handleCount()
+    {
+        std::cout<<storage.size()<<endl;
+    }
+
+    void handleClear()
+    {
+        storage.clear();
+        std::cout<<"Cleared"<<endl;
+    }
+    //print every key value pair
+    void print()
+    {
+        storage.print();
+    }
+
+    //stats
+    void stats()
+    {
+        std::cout<<"Elements : "<<storage.size()<<endl;
+        std::cout<<"Buckets : "<<storage.bucketCount()<<endl;
+        std::cout<<"LoadFactor : "<<storage.loadFactor()<<endl;
+        std::cout<<"Collisions : "<<storage.collisions()<<endl;
+    }
+
+//testing 
+
+    void printdebug()
+    {
+        storage.debugPrint();
+    }
+};
