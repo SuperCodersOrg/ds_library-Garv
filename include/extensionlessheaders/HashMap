@@ -12,11 +12,9 @@
             std::uintptr_t addr = reinterpret_cast<std::uintptr_t>(&val);
             addr^=(addr>>16); 
             addr*=0x45d9f3b; 
-            addr^=(addr>>16); 
-            
+            addr^=(addr>>16);
             return static_cast<size_t> (addr);
         }
-
     };
     template<>
     struct DefaultHash<int>{
