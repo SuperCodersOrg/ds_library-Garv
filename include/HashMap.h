@@ -86,7 +86,8 @@ class HashMap{
     void debugPrint() const;
     //to get the number of collisions to check hashfunction and chaining
     int collisions() const;
-    
+    //print all elements
+    void print()const;
 };
 
 
