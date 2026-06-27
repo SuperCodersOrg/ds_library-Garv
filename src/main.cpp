@@ -1,8 +1,7 @@
 #include <iostream>
-#include <Redis>
-
+#include <HashMap.h>
+using namespace std;
 int main()
 {
-    Redis r;
-    r.run();
+    
 }
