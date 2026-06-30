@@ -4,6 +4,8 @@
 # 
 # This file includes the relevant testing commands required for 
 # testing this directory and lists subdirectories to be tested as well.
-include("C:/Users/garvc/Desktop/CQ/Project-01/build/run_tests[1]_include.cmake")
+include("C:/Users/garvc/Desktop/CQ/Project-01/build/datest[1]_include.cmake")
+include("C:/Users/garvc/Desktop/CQ/Project-01/build/sltest[1]_include.cmake")
+include("C:/Users/garvc/Desktop/CQ/Project-01/build/hmtest[1]_include.cmake")
 include("C:/Users/garvc/Desktop/CQ/Project-01/build/redistest[1]_include.cmake")
 subdirs("_deps/googletest-build")

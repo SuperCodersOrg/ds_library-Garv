@@ -36,59 +36,286 @@ include CMakeFiles/rules.ninja
 
 cmake_ninja_workdir = C$:/Users/garvc/Desktop/CQ/Project-01/build/
 # =============================================================================
-# Object build statements for EXECUTABLE target run_tests
+# Object build statements for EXECUTABLE target datest
 
 
 #############################################
-# Order-only phony target for run_tests
+# Order-only phony target for datest
 
-build cmake_object_order_depends_target_run_tests: phony || cmake_object_order_depends_target_gtest cmake_object_order_depends_target_gtest_main
+build cmake_object_order_depends_target_datest: phony || cmake_object_order_depends_target_gtest cmake_object_order_depends_target_gtest_main
 
-build CMakeFiles/run_tests.dir/tests/dynamic_array_test.cpp.obj: CXX_COMPILER__run_tests_unscanned_ C$:/Users/garvc/Desktop/CQ/Project-01/tests/dynamic_array_test.cpp || cmake_object_order_depends_target_run_tests
+build CMakeFiles/datest.dir/tests/dynamicarray/test_append.cpp.obj: CXX_COMPILER__datest_unscanned_ C$:/Users/garvc/Desktop/CQ/Project-01/tests/dynamicarray/test_append.cpp || cmake_object_order_depends_target_datest
   DEFINES = -DGTEST_HAS_PTHREAD=0
-  DEP_FILE = CMakeFiles\run_tests.dir\tests\dynamic_array_test.cpp.obj.d
+  DEP_FILE = CMakeFiles\datest.dir\tests\dynamicarray\test_append.cpp.obj.d
   FLAGS = -std=gnu++17
   INCLUDES = -IC:/Users/garvc/Desktop/CQ/Project-01/include -isystem C:/Users/garvc/Desktop/CQ/Project-01/build/_deps/googletest-src/googletest/include -isystem C:/Users/garvc/Desktop/CQ/Project-01/build/_deps/googletest-src/googletest
-  OBJECT_DIR = CMakeFiles\run_tests.dir
-  OBJECT_FILE_DIR = CMakeFiles\run_tests.dir\tests
-  TARGET_SUPPORT_DIR = CMakeFiles\run_tests.dir
+  OBJECT_DIR = CMakeFiles\datest.dir
+  OBJECT_FILE_DIR = CMakeFiles\datest.dir\tests\dynamicarray
+  TARGET_SUPPORT_DIR = CMakeFiles\datest.dir
 
-build CMakeFiles/run_tests.dir/tests/singly_list_test.cpp.obj: CXX_COMPILER__run_tests_unscanned_ C$:/Users/garvc/Desktop/CQ/Project-01/tests/singly_list_test.cpp || cmake_object_order_depends_target_run_tests
+build CMakeFiles/datest.dir/tests/dynamicarray/test_constructors.cpp.obj: CXX_COMPILER__datest_unscanned_ C$:/Users/garvc/Desktop/CQ/Project-01/tests/dynamicarray/test_constructors.cpp || cmake_object_order_depends_target_datest
   DEFINES = -DGTEST_HAS_PTHREAD=0
-  DEP_FILE = CMakeFiles\run_tests.dir\tests\singly_list_test.cpp.obj.d
+  DEP_FILE = CMakeFiles\datest.dir\tests\dynamicarray\test_constructors.cpp.obj.d
   FLAGS = -std=gnu++17
   INCLUDES = -IC:/Users/garvc/Desktop/CQ/Project-01/include -isystem C:/Users/garvc/Desktop/CQ/Project-01/build/_deps/googletest-src/googletest/include -isystem C:/Users/garvc/Desktop/CQ/Project-01/build/_deps/googletest-src/googletest
-  OBJECT_DIR = CMakeFiles\run_tests.dir
-  OBJECT_FILE_DIR = CMakeFiles\run_tests.dir\tests
-  TARGET_SUPPORT_DIR = CMakeFiles\run_tests.dir
+  OBJECT_DIR = CMakeFiles\datest.dir
+  OBJECT_FILE_DIR = CMakeFiles\datest.dir\tests\dynamicarray
+  TARGET_SUPPORT_DIR = CMakeFiles\datest.dir
 
-build CMakeFiles/run_tests.dir/tests/hash_map_test.cpp.obj: CXX_COMPILER__run_tests_unscanned_ C$:/Users/garvc/Desktop/CQ/Project-01/tests/hash_map_test.cpp || cmake_object_order_depends_target_run_tests
+build CMakeFiles/datest.dir/tests/dynamicarray/test_get_set.cpp.obj: CXX_COMPILER__datest_unscanned_ C$:/Users/garvc/Desktop/CQ/Project-01/tests/dynamicarray/test_get_set.cpp || cmake_object_order_depends_target_datest
   DEFINES = -DGTEST_HAS_PTHREAD=0
-  DEP_FILE = CMakeFiles\run_tests.dir\tests\hash_map_test.cpp.obj.d
+  DEP_FILE = CMakeFiles\datest.dir\tests\dynamicarray\test_get_set.cpp.obj.d
   FLAGS = -std=gnu++17
   INCLUDES = -IC:/Users/garvc/Desktop/CQ/Project-01/include -isystem C:/Users/garvc/Desktop/CQ/Project-01/build/_deps/googletest-src/googletest/include -isystem C:/Users/garvc/Desktop/CQ/Project-01/build/_deps/googletest-src/googletest
-  OBJECT_DIR = CMakeFiles\run_tests.dir
-  OBJECT_FILE_DIR = CMakeFiles\run_tests.dir\tests
-  TARGET_SUPPORT_DIR = CMakeFiles\run_tests.dir
+  OBJECT_DIR = CMakeFiles\datest.dir
+  OBJECT_FILE_DIR = CMakeFiles\datest.dir\tests\dynamicarray
+  TARGET_SUPPORT_DIR = CMakeFiles\datest.dir
+
+build CMakeFiles/datest.dir/tests/dynamicarray/test_remove.cpp.obj: CXX_COMPILER__datest_unscanned_ C$:/Users/garvc/Desktop/CQ/Project-01/tests/dynamicarray/test_remove.cpp || cmake_object_order_depends_target_datest
+  DEFINES = -DGTEST_HAS_PTHREAD=0
+  DEP_FILE = CMakeFiles\datest.dir\tests\dynamicarray\test_remove.cpp.obj.d
+  FLAGS = -std=gnu++17
+  INCLUDES = -IC:/Users/garvc/Desktop/CQ/Project-01/include -isystem C:/Users/garvc/Desktop/CQ/Project-01/build/_deps/googletest-src/googletest/include -isystem C:/Users/garvc/Desktop/CQ/Project-01/build/_deps/googletest-src/googletest
+  OBJECT_DIR = CMakeFiles\datest.dir
+  OBJECT_FILE_DIR = CMakeFiles\datest.dir\tests\dynamicarray
+  TARGET_SUPPORT_DIR = CMakeFiles\datest.dir
+
+build CMakeFiles/datest.dir/tests/dynamicarray/test_insert.cpp.obj: CXX_COMPILER__datest_unscanned_ C$:/Users/garvc/Desktop/CQ/Project-01/tests/dynamicarray/test_insert.cpp || cmake_object_order_depends_target_datest
+  DEFINES = -DGTEST_HAS_PTHREAD=0
+  DEP_FILE = CMakeFiles\datest.dir\tests\dynamicarray\test_insert.cpp.obj.d
+  FLAGS = -std=gnu++17
+  INCLUDES = -IC:/Users/garvc/Desktop/CQ/Project-01/include -isystem C:/Users/garvc/Desktop/CQ/Project-01/build/_deps/googletest-src/googletest/include -isystem C:/Users/garvc/Desktop/CQ/Project-01/build/_deps/googletest-src/googletest
+  OBJECT_DIR = CMakeFiles\datest.dir
+  OBJECT_FILE_DIR = CMakeFiles\datest.dir\tests\dynamicarray
+  TARGET_SUPPORT_DIR = CMakeFiles\datest.dir
+
+build CMakeFiles/datest.dir/tests/dynamicarray/test_iterators.cpp.obj: CXX_COMPILER__datest_unscanned_ C$:/Users/garvc/Desktop/CQ/Project-01/tests/dynamicarray/test_iterators.cpp || cmake_object_order_depends_target_datest
+  DEFINES = -DGTEST_HAS_PTHREAD=0
+  DEP_FILE = CMakeFiles\datest.dir\tests\dynamicarray\test_iterators.cpp.obj.d
+  FLAGS = -std=gnu++17
+  INCLUDES = -IC:/Users/garvc/Desktop/CQ/Project-01/include -isystem C:/Users/garvc/Desktop/CQ/Project-01/build/_deps/googletest-src/googletest/include -isystem C:/Users/garvc/Desktop/CQ/Project-01/build/_deps/googletest-src/googletest
+  OBJECT_DIR = CMakeFiles\datest.dir
+  OBJECT_FILE_DIR = CMakeFiles\datest.dir\tests\dynamicarray
+  TARGET_SUPPORT_DIR = CMakeFiles\datest.dir
+
+build CMakeFiles/datest.dir/tests/dynamicarray/test_operator.cpp.obj: CXX_COMPILER__datest_unscanned_ C$:/Users/garvc/Desktop/CQ/Project-01/tests/dynamicarray/test_operator.cpp || cmake_object_order_depends_target_datest
+  DEFINES = -DGTEST_HAS_PTHREAD=0
+  DEP_FILE = CMakeFiles\datest.dir\tests\dynamicarray\test_operator.cpp.obj.d
+  FLAGS = -std=gnu++17
+  INCLUDES = -IC:/Users/garvc/Desktop/CQ/Project-01/include -isystem C:/Users/garvc/Desktop/CQ/Project-01/build/_deps/googletest-src/googletest/include -isystem C:/Users/garvc/Desktop/CQ/Project-01/build/_deps/googletest-src/googletest
+  OBJECT_DIR = CMakeFiles\datest.dir
+  OBJECT_FILE_DIR = CMakeFiles\datest.dir\tests\dynamicarray
+  TARGET_SUPPORT_DIR = CMakeFiles\datest.dir
+
+build CMakeFiles/datest.dir/tests/dynamicarray/test_utility.cpp.obj: CXX_COMPILER__datest_unscanned_ C$:/Users/garvc/Desktop/CQ/Project-01/tests/dynamicarray/test_utility.cpp || cmake_object_order_depends_target_datest
+  DEFINES = -DGTEST_HAS_PTHREAD=0
+  DEP_FILE = CMakeFiles\datest.dir\tests\dynamicarray\test_utility.cpp.obj.d
+  FLAGS = -std=gnu++17
+  INCLUDES = -IC:/Users/garvc/Desktop/CQ/Project-01/include -isystem C:/Users/garvc/Desktop/CQ/Project-01/build/_deps/googletest-src/googletest/include -isystem C:/Users/garvc/Desktop/CQ/Project-01/build/_deps/googletest-src/googletest
+  OBJECT_DIR = CMakeFiles\datest.dir
+  OBJECT_FILE_DIR = CMakeFiles\datest.dir\tests\dynamicarray
+  TARGET_SUPPORT_DIR = CMakeFiles\datest.dir
 
 
 # =============================================================================
-# Link build statements for EXECUTABLE target run_tests
+# Link build statements for EXECUTABLE target datest
 
 
 #############################################
-# Link the executable run_tests.exe
+# Link the executable datest.exe
 
-build run_tests.exe run_tests[1]_tests.cmake | ${cmake_ninja_workdir}run_tests[1]_tests.cmake: CXX_EXECUTABLE_LINKER__run_tests_ CMakeFiles/run_tests.dir/tests/dynamic_array_test.cpp.obj CMakeFiles/run_tests.dir/tests/singly_list_test.cpp.obj CMakeFiles/run_tests.dir/tests/hash_map_test.cpp.obj | lib/libgtest_main.a lib/libgtest.a || lib/libgtest.a lib/libgtest_main.a
+build datest.exe datest[1]_tests.cmake | ${cmake_ninja_workdir}datest[1]_tests.cmake: CXX_EXECUTABLE_LINKER__datest_ CMakeFiles/datest.dir/tests/dynamicarray/test_append.cpp.obj CMakeFiles/datest.dir/tests/dynamicarray/test_constructors.cpp.obj CMakeFiles/datest.dir/tests/dynamicarray/test_get_set.cpp.obj CMakeFiles/datest.dir/tests/dynamicarray/test_remove.cpp.obj CMakeFiles/datest.dir/tests/dynamicarray/test_insert.cpp.obj CMakeFiles/datest.dir/tests/dynamicarray/test_iterators.cpp.obj CMakeFiles/datest.dir/tests/dynamicarray/test_operator.cpp.obj CMakeFiles/datest.dir/tests/dynamicarray/test_utility.cpp.obj | lib/libgtest_main.a lib/libgtest.a || lib/libgtest.a lib/libgtest_main.a
   LINK_LIBRARIES = lib/libgtest_main.a  lib/libgtest.a  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
-  OBJECT_DIR = CMakeFiles\run_tests.dir
-  POST_BUILD = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\garvc\Desktop\CQ\Project-01\build && C:\msys64\ucrt64\bin\cmake.exe -D TEST_TARGET=run_tests -D TEST_EXECUTABLE=C:/Users/garvc/Desktop/CQ/Project-01/build/run_tests.exe -D TEST_EXECUTOR= -D TEST_WORKING_DIR=C:/Users/garvc/Desktop/CQ/Project-01/build -D TEST_EXTRA_ARGS= -D TEST_PROPERTIES= -D TEST_PREFIX= -D TEST_SUFFIX= -D TEST_FILTER= -D NO_PRETTY_TYPES=FALSE -D NO_PRETTY_VALUES=FALSE -D TEST_LIST=run_tests_TESTS -D CTEST_FILE=C:/Users/garvc/Desktop/CQ/Project-01/build/run_tests[1]_tests.cmake -D TEST_DISCOVERY_TIMEOUT=5 -D TEST_DISCOVERY_EXTRA_ARGS= -D TEST_XML_OUTPUT_DIR= -P C:/msys64/ucrt64/share/cmake/Modules/GoogleTestAddTests.cmake"
+  OBJECT_DIR = CMakeFiles\datest.dir
+  POST_BUILD = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\garvc\Desktop\CQ\Project-01\build && C:\msys64\ucrt64\bin\cmake.exe -D TEST_TARGET=datest -D TEST_EXECUTABLE=C:/Users/garvc/Desktop/CQ/Project-01/build/datest.exe -D TEST_EXECUTOR= -D TEST_WORKING_DIR=C:/Users/garvc/Desktop/CQ/Project-01/build -D TEST_EXTRA_ARGS= -D TEST_PROPERTIES= -D TEST_PREFIX= -D TEST_SUFFIX= -D TEST_FILTER= -D NO_PRETTY_TYPES=FALSE -D NO_PRETTY_VALUES=FALSE -D TEST_LIST=datest_TESTS -D CTEST_FILE=C:/Users/garvc/Desktop/CQ/Project-01/build/datest[1]_tests.cmake -D TEST_DISCOVERY_TIMEOUT=5 -D TEST_DISCOVERY_EXTRA_ARGS= -D TEST_XML_OUTPUT_DIR= -P C:/msys64/ucrt64/share/cmake/Modules/GoogleTestAddTests.cmake"
   PRE_LINK = cd .
   RESTAT = 1
-  TARGET_FILE = run_tests.exe
-  TARGET_IMPLIB = librun_tests.dll.a
-  TARGET_PDB = run_tests.exe.dbg
-  TARGET_SUPPORT_DIR = CMakeFiles\run_tests.dir
+  TARGET_FILE = datest.exe
+  TARGET_IMPLIB = libdatest.dll.a
+  TARGET_PDB = datest.exe.dbg
+  TARGET_SUPPORT_DIR = CMakeFiles\datest.dir
+
+# =============================================================================
+# Object build statements for EXECUTABLE target sltest
+
+
+#############################################
+# Order-only phony target for sltest
+
+build cmake_object_order_depends_target_sltest: phony || cmake_object_order_depends_target_gtest cmake_object_order_depends_target_gtest_main
+
+build CMakeFiles/sltest.dir/tests/linkedlist/test_append.cpp.obj: CXX_COMPILER__sltest_unscanned_ C$:/Users/garvc/Desktop/CQ/Project-01/tests/linkedlist/test_append.cpp || cmake_object_order_depends_target_sltest
+  DEFINES = -DGTEST_HAS_PTHREAD=0
+  DEP_FILE = CMakeFiles\sltest.dir\tests\linkedlist\test_append.cpp.obj.d
+  FLAGS = -std=gnu++17
+  INCLUDES = -IC:/Users/garvc/Desktop/CQ/Project-01/include -isystem C:/Users/garvc/Desktop/CQ/Project-01/build/_deps/googletest-src/googletest/include -isystem C:/Users/garvc/Desktop/CQ/Project-01/build/_deps/googletest-src/googletest
+  OBJECT_DIR = CMakeFiles\sltest.dir
+  OBJECT_FILE_DIR = CMakeFiles\sltest.dir\tests\linkedlist
+  TARGET_SUPPORT_DIR = CMakeFiles\sltest.dir
+
+build CMakeFiles/sltest.dir/tests/linkedlist/test_constructors.cpp.obj: CXX_COMPILER__sltest_unscanned_ C$:/Users/garvc/Desktop/CQ/Project-01/tests/linkedlist/test_constructors.cpp || cmake_object_order_depends_target_sltest
+  DEFINES = -DGTEST_HAS_PTHREAD=0
+  DEP_FILE = CMakeFiles\sltest.dir\tests\linkedlist\test_constructors.cpp.obj.d
+  FLAGS = -std=gnu++17
+  INCLUDES = -IC:/Users/garvc/Desktop/CQ/Project-01/include -isystem C:/Users/garvc/Desktop/CQ/Project-01/build/_deps/googletest-src/googletest/include -isystem C:/Users/garvc/Desktop/CQ/Project-01/build/_deps/googletest-src/googletest
+  OBJECT_DIR = CMakeFiles\sltest.dir
+  OBJECT_FILE_DIR = CMakeFiles\sltest.dir\tests\linkedlist
+  TARGET_SUPPORT_DIR = CMakeFiles\sltest.dir
+
+build CMakeFiles/sltest.dir/tests/linkedlist/test_get_search.cpp.obj: CXX_COMPILER__sltest_unscanned_ C$:/Users/garvc/Desktop/CQ/Project-01/tests/linkedlist/test_get_search.cpp || cmake_object_order_depends_target_sltest
+  DEFINES = -DGTEST_HAS_PTHREAD=0
+  DEP_FILE = CMakeFiles\sltest.dir\tests\linkedlist\test_get_search.cpp.obj.d
+  FLAGS = -std=gnu++17
+  INCLUDES = -IC:/Users/garvc/Desktop/CQ/Project-01/include -isystem C:/Users/garvc/Desktop/CQ/Project-01/build/_deps/googletest-src/googletest/include -isystem C:/Users/garvc/Desktop/CQ/Project-01/build/_deps/googletest-src/googletest
+  OBJECT_DIR = CMakeFiles\sltest.dir
+  OBJECT_FILE_DIR = CMakeFiles\sltest.dir\tests\linkedlist
+  TARGET_SUPPORT_DIR = CMakeFiles\sltest.dir
+
+build CMakeFiles/sltest.dir/tests/linkedlist/test_remove.cpp.obj: CXX_COMPILER__sltest_unscanned_ C$:/Users/garvc/Desktop/CQ/Project-01/tests/linkedlist/test_remove.cpp || cmake_object_order_depends_target_sltest
+  DEFINES = -DGTEST_HAS_PTHREAD=0
+  DEP_FILE = CMakeFiles\sltest.dir\tests\linkedlist\test_remove.cpp.obj.d
+  FLAGS = -std=gnu++17
+  INCLUDES = -IC:/Users/garvc/Desktop/CQ/Project-01/include -isystem C:/Users/garvc/Desktop/CQ/Project-01/build/_deps/googletest-src/googletest/include -isystem C:/Users/garvc/Desktop/CQ/Project-01/build/_deps/googletest-src/googletest
+  OBJECT_DIR = CMakeFiles\sltest.dir
+  OBJECT_FILE_DIR = CMakeFiles\sltest.dir\tests\linkedlist
+  TARGET_SUPPORT_DIR = CMakeFiles\sltest.dir
+
+build CMakeFiles/sltest.dir/tests/linkedlist/test_insert.cpp.obj: CXX_COMPILER__sltest_unscanned_ C$:/Users/garvc/Desktop/CQ/Project-01/tests/linkedlist/test_insert.cpp || cmake_object_order_depends_target_sltest
+  DEFINES = -DGTEST_HAS_PTHREAD=0
+  DEP_FILE = CMakeFiles\sltest.dir\tests\linkedlist\test_insert.cpp.obj.d
+  FLAGS = -std=gnu++17
+  INCLUDES = -IC:/Users/garvc/Desktop/CQ/Project-01/include -isystem C:/Users/garvc/Desktop/CQ/Project-01/build/_deps/googletest-src/googletest/include -isystem C:/Users/garvc/Desktop/CQ/Project-01/build/_deps/googletest-src/googletest
+  OBJECT_DIR = CMakeFiles\sltest.dir
+  OBJECT_FILE_DIR = CMakeFiles\sltest.dir\tests\linkedlist
+  TARGET_SUPPORT_DIR = CMakeFiles\sltest.dir
+
+build CMakeFiles/sltest.dir/tests/linkedlist/test_operator.cpp.obj: CXX_COMPILER__sltest_unscanned_ C$:/Users/garvc/Desktop/CQ/Project-01/tests/linkedlist/test_operator.cpp || cmake_object_order_depends_target_sltest
+  DEFINES = -DGTEST_HAS_PTHREAD=0
+  DEP_FILE = CMakeFiles\sltest.dir\tests\linkedlist\test_operator.cpp.obj.d
+  FLAGS = -std=gnu++17
+  INCLUDES = -IC:/Users/garvc/Desktop/CQ/Project-01/include -isystem C:/Users/garvc/Desktop/CQ/Project-01/build/_deps/googletest-src/googletest/include -isystem C:/Users/garvc/Desktop/CQ/Project-01/build/_deps/googletest-src/googletest
+  OBJECT_DIR = CMakeFiles\sltest.dir
+  OBJECT_FILE_DIR = CMakeFiles\sltest.dir\tests\linkedlist
+  TARGET_SUPPORT_DIR = CMakeFiles\sltest.dir
+
+build CMakeFiles/sltest.dir/tests/linkedlist/test_utility.cpp.obj: CXX_COMPILER__sltest_unscanned_ C$:/Users/garvc/Desktop/CQ/Project-01/tests/linkedlist/test_utility.cpp || cmake_object_order_depends_target_sltest
+  DEFINES = -DGTEST_HAS_PTHREAD=0
+  DEP_FILE = CMakeFiles\sltest.dir\tests\linkedlist\test_utility.cpp.obj.d
+  FLAGS = -std=gnu++17
+  INCLUDES = -IC:/Users/garvc/Desktop/CQ/Project-01/include -isystem C:/Users/garvc/Desktop/CQ/Project-01/build/_deps/googletest-src/googletest/include -isystem C:/Users/garvc/Desktop/CQ/Project-01/build/_deps/googletest-src/googletest
+  OBJECT_DIR = CMakeFiles\sltest.dir
+  OBJECT_FILE_DIR = CMakeFiles\sltest.dir\tests\linkedlist
+  TARGET_SUPPORT_DIR = CMakeFiles\sltest.dir
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target sltest
+
+
+#############################################
+# Link the executable sltest.exe
+
+build sltest.exe sltest[1]_tests.cmake | ${cmake_ninja_workdir}sltest[1]_tests.cmake: CXX_EXECUTABLE_LINKER__sltest_ CMakeFiles/sltest.dir/tests/linkedlist/test_append.cpp.obj CMakeFiles/sltest.dir/tests/linkedlist/test_constructors.cpp.obj CMakeFiles/sltest.dir/tests/linkedlist/test_get_search.cpp.obj CMakeFiles/sltest.dir/tests/linkedlist/test_remove.cpp.obj CMakeFiles/sltest.dir/tests/linkedlist/test_insert.cpp.obj CMakeFiles/sltest.dir/tests/linkedlist/test_operator.cpp.obj CMakeFiles/sltest.dir/tests/linkedlist/test_utility.cpp.obj | lib/libgtest_main.a lib/libgtest.a || lib/libgtest.a lib/libgtest_main.a
+  LINK_LIBRARIES = lib/libgtest_main.a  lib/libgtest.a  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  OBJECT_DIR = CMakeFiles\sltest.dir
+  POST_BUILD = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\garvc\Desktop\CQ\Project-01\build && C:\msys64\ucrt64\bin\cmake.exe -D TEST_TARGET=sltest -D TEST_EXECUTABLE=C:/Users/garvc/Desktop/CQ/Project-01/build/sltest.exe -D TEST_EXECUTOR= -D TEST_WORKING_DIR=C:/Users/garvc/Desktop/CQ/Project-01/build -D TEST_EXTRA_ARGS= -D TEST_PROPERTIES= -D TEST_PREFIX= -D TEST_SUFFIX= -D TEST_FILTER= -D NO_PRETTY_TYPES=FALSE -D NO_PRETTY_VALUES=FALSE -D TEST_LIST=sltest_TESTS -D CTEST_FILE=C:/Users/garvc/Desktop/CQ/Project-01/build/sltest[1]_tests.cmake -D TEST_DISCOVERY_TIMEOUT=5 -D TEST_DISCOVERY_EXTRA_ARGS= -D TEST_XML_OUTPUT_DIR= -P C:/msys64/ucrt64/share/cmake/Modules/GoogleTestAddTests.cmake"
+  PRE_LINK = cd .
+  RESTAT = 1
+  TARGET_FILE = sltest.exe
+  TARGET_IMPLIB = libsltest.dll.a
+  TARGET_PDB = sltest.exe.dbg
+  TARGET_SUPPORT_DIR = CMakeFiles\sltest.dir
+
+# =============================================================================
+# Object build statements for EXECUTABLE target hmtest
+
+
+#############################################
+# Order-only phony target for hmtest
+
+build cmake_object_order_depends_target_hmtest: phony || cmake_object_order_depends_target_gtest cmake_object_order_depends_target_gtest_main
+
+build CMakeFiles/hmtest.dir/tests/hashmap/test_constructors.cpp.obj: CXX_COMPILER__hmtest_unscanned_ C$:/Users/garvc/Desktop/CQ/Project-01/tests/hashmap/test_constructors.cpp || cmake_object_order_depends_target_hmtest
+  DEFINES = -DGTEST_HAS_PTHREAD=0
+  DEP_FILE = CMakeFiles\hmtest.dir\tests\hashmap\test_constructors.cpp.obj.d
+  FLAGS = -std=gnu++17
+  INCLUDES = -IC:/Users/garvc/Desktop/CQ/Project-01/include -isystem C:/Users/garvc/Desktop/CQ/Project-01/build/_deps/googletest-src/googletest/include -isystem C:/Users/garvc/Desktop/CQ/Project-01/build/_deps/googletest-src/googletest
+  OBJECT_DIR = CMakeFiles\hmtest.dir
+  OBJECT_FILE_DIR = CMakeFiles\hmtest.dir\tests\hashmap
+  TARGET_SUPPORT_DIR = CMakeFiles\hmtest.dir
+
+build CMakeFiles/hmtest.dir/tests/hashmap/test_remove.cpp.obj: CXX_COMPILER__hmtest_unscanned_ C$:/Users/garvc/Desktop/CQ/Project-01/tests/hashmap/test_remove.cpp || cmake_object_order_depends_target_hmtest
+  DEFINES = -DGTEST_HAS_PTHREAD=0
+  DEP_FILE = CMakeFiles\hmtest.dir\tests\hashmap\test_remove.cpp.obj.d
+  FLAGS = -std=gnu++17
+  INCLUDES = -IC:/Users/garvc/Desktop/CQ/Project-01/include -isystem C:/Users/garvc/Desktop/CQ/Project-01/build/_deps/googletest-src/googletest/include -isystem C:/Users/garvc/Desktop/CQ/Project-01/build/_deps/googletest-src/googletest
+  OBJECT_DIR = CMakeFiles\hmtest.dir
+  OBJECT_FILE_DIR = CMakeFiles\hmtest.dir\tests\hashmap
+  TARGET_SUPPORT_DIR = CMakeFiles\hmtest.dir
+
+build CMakeFiles/hmtest.dir/tests/hashmap/test_insert.cpp.obj: CXX_COMPILER__hmtest_unscanned_ C$:/Users/garvc/Desktop/CQ/Project-01/tests/hashmap/test_insert.cpp || cmake_object_order_depends_target_hmtest
+  DEFINES = -DGTEST_HAS_PTHREAD=0
+  DEP_FILE = CMakeFiles\hmtest.dir\tests\hashmap\test_insert.cpp.obj.d
+  FLAGS = -std=gnu++17
+  INCLUDES = -IC:/Users/garvc/Desktop/CQ/Project-01/include -isystem C:/Users/garvc/Desktop/CQ/Project-01/build/_deps/googletest-src/googletest/include -isystem C:/Users/garvc/Desktop/CQ/Project-01/build/_deps/googletest-src/googletest
+  OBJECT_DIR = CMakeFiles\hmtest.dir
+  OBJECT_FILE_DIR = CMakeFiles\hmtest.dir\tests\hashmap
+  TARGET_SUPPORT_DIR = CMakeFiles\hmtest.dir
+
+build CMakeFiles/hmtest.dir/tests/hashmap/test_utility.cpp.obj: CXX_COMPILER__hmtest_unscanned_ C$:/Users/garvc/Desktop/CQ/Project-01/tests/hashmap/test_utility.cpp || cmake_object_order_depends_target_hmtest
+  DEFINES = -DGTEST_HAS_PTHREAD=0
+  DEP_FILE = CMakeFiles\hmtest.dir\tests\hashmap\test_utility.cpp.obj.d
+  FLAGS = -std=gnu++17
+  INCLUDES = -IC:/Users/garvc/Desktop/CQ/Project-01/include -isystem C:/Users/garvc/Desktop/CQ/Project-01/build/_deps/googletest-src/googletest/include -isystem C:/Users/garvc/Desktop/CQ/Project-01/build/_deps/googletest-src/googletest
+  OBJECT_DIR = CMakeFiles\hmtest.dir
+  OBJECT_FILE_DIR = CMakeFiles\hmtest.dir\tests\hashmap
+  TARGET_SUPPORT_DIR = CMakeFiles\hmtest.dir
+
+build CMakeFiles/hmtest.dir/tests/hashmap/test_get.cpp.obj: CXX_COMPILER__hmtest_unscanned_ C$:/Users/garvc/Desktop/CQ/Project-01/tests/hashmap/test_get.cpp || cmake_object_order_depends_target_hmtest
+  DEFINES = -DGTEST_HAS_PTHREAD=0
+  DEP_FILE = CMakeFiles\hmtest.dir\tests\hashmap\test_get.cpp.obj.d
+  FLAGS = -std=gnu++17
+  INCLUDES = -IC:/Users/garvc/Desktop/CQ/Project-01/include -isystem C:/Users/garvc/Desktop/CQ/Project-01/build/_deps/googletest-src/googletest/include -isystem C:/Users/garvc/Desktop/CQ/Project-01/build/_deps/googletest-src/googletest
+  OBJECT_DIR = CMakeFiles\hmtest.dir
+  OBJECT_FILE_DIR = CMakeFiles\hmtest.dir\tests\hashmap
+  TARGET_SUPPORT_DIR = CMakeFiles\hmtest.dir
+
+build CMakeFiles/hmtest.dir/tests/hashmap/test_exists.cpp.obj: CXX_COMPILER__hmtest_unscanned_ C$:/Users/garvc/Desktop/CQ/Project-01/tests/hashmap/test_exists.cpp || cmake_object_order_depends_target_hmtest
+  DEFINES = -DGTEST_HAS_PTHREAD=0
+  DEP_FILE = CMakeFiles\hmtest.dir\tests\hashmap\test_exists.cpp.obj.d
+  FLAGS = -std=gnu++17
+  INCLUDES = -IC:/Users/garvc/Desktop/CQ/Project-01/include -isystem C:/Users/garvc/Desktop/CQ/Project-01/build/_deps/googletest-src/googletest/include -isystem C:/Users/garvc/Desktop/CQ/Project-01/build/_deps/googletest-src/googletest
+  OBJECT_DIR = CMakeFiles\hmtest.dir
+  OBJECT_FILE_DIR = CMakeFiles\hmtest.dir\tests\hashmap
+  TARGET_SUPPORT_DIR = CMakeFiles\hmtest.dir
+
+build CMakeFiles/hmtest.dir/tests/hashmap/test_clear.cpp.obj: CXX_COMPILER__hmtest_unscanned_ C$:/Users/garvc/Desktop/CQ/Project-01/tests/hashmap/test_clear.cpp || cmake_object_order_depends_target_hmtest
+  DEFINES = -DGTEST_HAS_PTHREAD=0
+  DEP_FILE = CMakeFiles\hmtest.dir\tests\hashmap\test_clear.cpp.obj.d
+  FLAGS = -std=gnu++17
+  INCLUDES = -IC:/Users/garvc/Desktop/CQ/Project-01/include -isystem C:/Users/garvc/Desktop/CQ/Project-01/build/_deps/googletest-src/googletest/include -isystem C:/Users/garvc/Desktop/CQ/Project-01/build/_deps/googletest-src/googletest
+  OBJECT_DIR = CMakeFiles\hmtest.dir
+  OBJECT_FILE_DIR = CMakeFiles\hmtest.dir\tests\hashmap
+  TARGET_SUPPORT_DIR = CMakeFiles\hmtest.dir
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target hmtest
+
+
+#############################################
+# Link the executable hmtest.exe
+
+build hmtest.exe hmtest[1]_tests.cmake | ${cmake_ninja_workdir}hmtest[1]_tests.cmake: CXX_EXECUTABLE_LINKER__hmtest_ CMakeFiles/hmtest.dir/tests/hashmap/test_constructors.cpp.obj CMakeFiles/hmtest.dir/tests/hashmap/test_remove.cpp.obj CMakeFiles/hmtest.dir/tests/hashmap/test_insert.cpp.obj CMakeFiles/hmtest.dir/tests/hashmap/test_utility.cpp.obj CMakeFiles/hmtest.dir/tests/hashmap/test_get.cpp.obj CMakeFiles/hmtest.dir/tests/hashmap/test_exists.cpp.obj CMakeFiles/hmtest.dir/tests/hashmap/test_clear.cpp.obj | lib/libgtest_main.a lib/libgtest.a || lib/libgtest.a lib/libgtest_main.a
+  LINK_LIBRARIES = lib/libgtest_main.a  lib/libgtest.a  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  OBJECT_DIR = CMakeFiles\hmtest.dir
+  POST_BUILD = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\garvc\Desktop\CQ\Project-01\build && C:\msys64\ucrt64\bin\cmake.exe -D TEST_TARGET=hmtest -D TEST_EXECUTABLE=C:/Users/garvc/Desktop/CQ/Project-01/build/hmtest.exe -D TEST_EXECUTOR= -D TEST_WORKING_DIR=C:/Users/garvc/Desktop/CQ/Project-01/build -D TEST_EXTRA_ARGS= -D TEST_PROPERTIES= -D TEST_PREFIX= -D TEST_SUFFIX= -D TEST_FILTER= -D NO_PRETTY_TYPES=FALSE -D NO_PRETTY_VALUES=FALSE -D TEST_LIST=hmtest_TESTS -D CTEST_FILE=C:/Users/garvc/Desktop/CQ/Project-01/build/hmtest[1]_tests.cmake -D TEST_DISCOVERY_TIMEOUT=5 -D TEST_DISCOVERY_EXTRA_ARGS= -D TEST_XML_OUTPUT_DIR= -P C:/msys64/ucrt64/share/cmake/Modules/GoogleTestAddTests.cmake"
+  PRE_LINK = cd .
+  RESTAT = 1
+  TARGET_FILE = hmtest.exe
+  TARGET_IMPLIB = libhmtest.dll.a
+  TARGET_PDB = hmtest.exe.dbg
+  TARGET_SUPPORT_DIR = CMakeFiles\hmtest.dir
 
 # =============================================================================
 # Object build statements for EXECUTABLE target redistest
@@ -99,13 +326,31 @@ build run_tests.exe run_tests[1]_tests.cmake | ${cmake_ninja_workdir}run_tests[1
 
 build cmake_object_order_depends_target_redistest: phony || cmake_object_order_depends_target_gtest cmake_object_order_depends_target_gtest_main
 
-build CMakeFiles/redistest.dir/tests/redis_test.cpp.obj: CXX_COMPILER__redistest_unscanned_ C$:/Users/garvc/Desktop/CQ/Project-01/tests/redis_test.cpp || cmake_object_order_depends_target_redistest
+build CMakeFiles/redistest.dir/tests/redis/test_commands.cpp.obj: CXX_COMPILER__redistest_unscanned_ C$:/Users/garvc/Desktop/CQ/Project-01/tests/redis/test_commands.cpp || cmake_object_order_depends_target_redistest
   DEFINES = -DGTEST_HAS_PTHREAD=0
-  DEP_FILE = CMakeFiles\redistest.dir\tests\redis_test.cpp.obj.d
+  DEP_FILE = CMakeFiles\redistest.dir\tests\redis\test_commands.cpp.obj.d
   FLAGS = -std=gnu++17
   INCLUDES = -IC:/Users/garvc/Desktop/CQ/Project-01/include -isystem C:/Users/garvc/Desktop/CQ/Project-01/build/_deps/googletest-src/googletest/include -isystem C:/Users/garvc/Desktop/CQ/Project-01/build/_deps/googletest-src/googletest
   OBJECT_DIR = CMakeFiles\redistest.dir
-  OBJECT_FILE_DIR = CMakeFiles\redistest.dir\tests
+  OBJECT_FILE_DIR = CMakeFiles\redistest.dir\tests\redis
+  TARGET_SUPPORT_DIR = CMakeFiles\redistest.dir
+
+build CMakeFiles/redistest.dir/tests/redis/test_set_get.cpp.obj: CXX_COMPILER__redistest_unscanned_ C$:/Users/garvc/Desktop/CQ/Project-01/tests/redis/test_set_get.cpp || cmake_object_order_depends_target_redistest
+  DEFINES = -DGTEST_HAS_PTHREAD=0
+  DEP_FILE = CMakeFiles\redistest.dir\tests\redis\test_set_get.cpp.obj.d
+  FLAGS = -std=gnu++17
+  INCLUDES = -IC:/Users/garvc/Desktop/CQ/Project-01/include -isystem C:/Users/garvc/Desktop/CQ/Project-01/build/_deps/googletest-src/googletest/include -isystem C:/Users/garvc/Desktop/CQ/Project-01/build/_deps/googletest-src/googletest
+  OBJECT_DIR = CMakeFiles\redistest.dir
+  OBJECT_FILE_DIR = CMakeFiles\redistest.dir\tests\redis
+  TARGET_SUPPORT_DIR = CMakeFiles\redistest.dir
+
+build CMakeFiles/redistest.dir/tests/redis/test_delete_exists.cpp.obj: CXX_COMPILER__redistest_unscanned_ C$:/Users/garvc/Desktop/CQ/Project-01/tests/redis/test_delete_exists.cpp || cmake_object_order_depends_target_redistest
+  DEFINES = -DGTEST_HAS_PTHREAD=0
+  DEP_FILE = CMakeFiles\redistest.dir\tests\redis\test_delete_exists.cpp.obj.d
+  FLAGS = -std=gnu++17
+  INCLUDES = -IC:/Users/garvc/Desktop/CQ/Project-01/include -isystem C:/Users/garvc/Desktop/CQ/Project-01/build/_deps/googletest-src/googletest/include -isystem C:/Users/garvc/Desktop/CQ/Project-01/build/_deps/googletest-src/googletest
+  OBJECT_DIR = CMakeFiles\redistest.dir
+  OBJECT_FILE_DIR = CMakeFiles\redistest.dir\tests\redis
   TARGET_SUPPORT_DIR = CMakeFiles\redistest.dir
 
 
@@ -116,7 +361,7 @@ build CMakeFiles/redistest.dir/tests/redis_test.cpp.obj: CXX_COMPILER__redistest
 #############################################
 # Link the executable redistest.exe
 
-build redistest.exe redistest[1]_tests.cmake | ${cmake_ninja_workdir}redistest[1]_tests.cmake: CXX_EXECUTABLE_LINKER__redistest_ CMakeFiles/redistest.dir/tests/redis_test.cpp.obj | lib/libgtest_main.a lib/libgtest.a || lib/libgtest.a lib/libgtest_main.a
+build redistest.exe redistest[1]_tests.cmake | ${cmake_ninja_workdir}redistest[1]_tests.cmake: CXX_EXECUTABLE_LINKER__redistest_ CMakeFiles/redistest.dir/tests/redis/test_commands.cpp.obj CMakeFiles/redistest.dir/tests/redis/test_set_get.cpp.obj CMakeFiles/redistest.dir/tests/redis/test_delete_exists.cpp.obj | lib/libgtest_main.a lib/libgtest.a || lib/libgtest.a lib/libgtest_main.a
   LINK_LIBRARIES = lib/libgtest_main.a  lib/libgtest.a  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\redistest.dir
   POST_BUILD = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\garvc\Desktop\CQ\Project-01\build && C:\msys64\ucrt64\bin\cmake.exe -D TEST_TARGET=redistest -D TEST_EXECUTABLE=C:/Users/garvc/Desktop/CQ/Project-01/build/redistest.exe -D TEST_EXECUTOR= -D TEST_WORKING_DIR=C:/Users/garvc/Desktop/CQ/Project-01/build -D TEST_EXTRA_ARGS= -D TEST_PROPERTIES= -D TEST_PREFIX= -D TEST_SUFFIX= -D TEST_FILTER= -D NO_PRETTY_TYPES=FALSE -D NO_PRETTY_VALUES=FALSE -D TEST_LIST=redistest_TESTS -D CTEST_FILE=C:/Users/garvc/Desktop/CQ/Project-01/build/redistest[1]_tests.cmake -D TEST_DISCOVERY_TIMEOUT=5 -D TEST_DISCOVERY_EXTRA_ARGS= -D TEST_XML_OUTPUT_DIR= -P C:/msys64/ucrt64/share/cmake/Modules/GoogleTestAddTests.cmake"
@@ -593,6 +838,8 @@ build _deps/googletest-build/googletest/install/strip: phony _deps/googletest-bu
 # =============================================================================
 # Target aliases.
 
+build datest: phony datest.exe
+
 build gmock: phony lib/libgmock.a
 
 build gmock_main: phony lib/libgmock_main.a
@@ -600,6 +847,8 @@ build gmock_main: phony lib/libgmock_main.a
 build gtest: phony lib/libgtest.a
 
 build gtest_main: phony lib/libgtest_main.a
+
+build hmtest: phony hmtest.exe
 
 build libgmock.a: phony lib/libgmock.a
 
@@ -611,7 +860,7 @@ build libgtest_main.a: phony lib/libgtest_main.a
 
 build redistest: phony redistest.exe
 
-build run_tests: phony run_tests.exe
+build sltest: phony sltest.exe
 
 # =============================================================================
 # Folder targets.
@@ -621,7 +870,7 @@ build run_tests: phony run_tests.exe
 #############################################
 # Folder: C:/Users/garvc/Desktop/CQ/Project-01/build
 
-build all: phony run_tests.exe redistest.exe _deps/googletest-build/all
+build all: phony datest.exe sltest.exe hmtest.exe redistest.exe _deps/googletest-build/all
 
 # =============================================================================
 

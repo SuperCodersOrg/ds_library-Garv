@@ -183,8 +183,10 @@ template<typename T>
 void SinglyList<T>::insertFront(const T& value){
     Node* newnode = allocate(value);
     if(head==nullptr)head=tail=newnode;
-    newnode->next=head;
-    head=newnode;
+    else{
+        newnode->next=head;
+        head=newnode;
+    }
     count++;
 }
 

@@ -1,4 +1,6 @@
-C:/Users/garvc/Desktop/CQ/Project-01/build/CMakeFiles/run_tests.dir
+C:/Users/garvc/Desktop/CQ/Project-01/build/CMakeFiles/datest.dir
+C:/Users/garvc/Desktop/CQ/Project-01/build/CMakeFiles/sltest.dir
+C:/Users/garvc/Desktop/CQ/Project-01/build/CMakeFiles/hmtest.dir
 C:/Users/garvc/Desktop/CQ/Project-01/build/CMakeFiles/redistest.dir
 C:/Users/garvc/Desktop/CQ/Project-01/build/CMakeFiles/test.dir
 C:/Users/garvc/Desktop/CQ/Project-01/build/CMakeFiles/edit_cache.dir

@@ -6,7 +6,7 @@
 
     //hashes based on their memory address treating them as huge integers
     template<typename T>
-    size_t DefaultHash<T>::operator()(const T& val)const{
+    inline size_t DefaultHash<T>::operator()(const T& val)const{
         std::uintptr_t addr = reinterpret_cast<std::uintptr_t>(&val);
         addr^=(addr>>16); 
         addr*=0x45d9f3b; 
@@ -14,7 +14,7 @@
         return static_cast<size_t> (addr);
     }
     //hashes integer using shifts and xor
-    size_t DefaultHash<int>::operator()(int x)const{
+    inline size_t DefaultHash<int>::operator()(int x)const{
         size_t h = static_cast<size_t>(x);
         h^=(h>>16); //xor high bits into low bits
         h*=0x45d9f3b;//large scattering constant (prime)
@@ -22,11 +22,11 @@
         return h;
     }
     //hashes using integer hash
-    size_t DefaultHash<char>::operator()(char c)const{
+    inline size_t DefaultHash<char>::operator()(char c)const{
         return DefaultHash<int>()(static_cast<int>(c));
     }
     //simplified FNV-1A
-    size_t DefaultHash<std::string>::operator()(const std::string& s)const
+    inline size_t DefaultHash<std::string>::operator()(const std::string& s)const
     {
         size_t hash=2166136261U;
         for(char c:s)

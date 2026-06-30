@@ -1,5 +1,5 @@
 {
-  "tests": 61,
+  "tests": 57,
   "name": "AllTests",
   "testsuites": [
     {
@@ -36,7 +36,7 @@
     },
     {
       "name": "HashMapComprehensive",
-      "tests": 14,
+      "tests": 10,
       "testsuite": [
         {
           "name": "DefaultConstructor",
@@ -69,19 +69,9 @@
           "line": 125
         },
         {
-          "name": "RemoveExistingKey",
-          "file": "C:\/Users\/garvc\/Desktop\/CQ\/Project-01\/tests\/hash_map_test.cpp",
-          "line": 136
-        },
-        {
           "name": "RemoveMissingKey",
           "file": "C:\/Users\/garvc\/Desktop\/CQ\/Project-01\/tests\/hash_map_test.cpp",
           "line": 147
-        },
-        {
-          "name": "Exists",
-          "file": "C:\/Users\/garvc\/Desktop\/CQ\/Project-01\/tests\/hash_map_test.cpp",
-          "line": 157
         },
         {
           "name": "Clear",
@@ -92,16 +82,6 @@
           "name": "RehashIncreasesBucketCount",
           "file": "C:\/Users\/garvc\/Desktop\/CQ\/Project-01\/tests\/hash_map_test.cpp",
           "line": 181
-        },
-        {
-          "name": "LoadFactor",
-          "file": "C:\/Users\/garvc\/Desktop\/CQ\/Project-01\/tests\/hash_map_test.cpp",
-          "line": 202
-        },
-        {
-          "name": "CollisionHandling",
-          "file": "C:\/Users\/garvc\/Desktop\/CQ\/Project-01\/tests\/hash_map_test.cpp",
-          "line": 221
         },
         {
           "name": "StringKeys",
