@@ -24,8 +24,7 @@ class DynamicArray {
     public:
     //CONSTRUCTORS
         DynamicArray() //construct empty array
-        DynamicArray(int cap) //construct with initial capacity
-        DynamicArray(int count,const T& value)//to construct a Dynamic array of the given size with the all of them initialized 
+        DynamicArray(int count,const T& value =T())//to construct a Dynamic array of the given size with the all of them initialized 
         template<typename Iterator>
         DynamicArray(Iterator start,Iterator end); //construct from any iterable container
         template<typename Ds> //construct from any Data structure that supports iteration

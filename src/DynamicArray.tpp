@@ -108,22 +108,6 @@
     DynamicArray<T>::DynamicArray(){
         init();
     }
-    
-    //capacity constructor
-    template <typename T>
-    DynamicArray<T>::DynamicArray(int cap){
-        size_=0;
-        if(cap>=0)capacity_=cap;
-        else capacity_=0;
-        if(capacity_>0)
-        {
-            data = allocate(capacity_);
-        }
-        else
-        {
-            data=nullptr;
-        }
-    }
 
     //to construct a Dynamic array of the given size with the all of them initialized to the same given value
     template <typename T>

@@ -1,3 +1,2 @@
-28:DynamicArrayOperator.NegativeIndexThrows
-29:DynamicArrayOperator.PastEndThrows
-30:DynamicArrayOperator.EmptyArrayThrows
+80:DynamicArrayConstructor.CapacityConstructor
+82:DynamicArrayConstructor.CapacityConstructorAppend

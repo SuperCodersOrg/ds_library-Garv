@@ -23,8 +23,7 @@
     public:
     //constructors -
         DynamicArray();//default constructor
-        DynamicArray(int cap);//capacity constructor
-        DynamicArray(int count,const T& value);//to construct a Dynamic array of the given size with the all of them initialized to the same given value
+        DynamicArray(int count,const T& value = T());//to construct a Dynamic array of the given size with the all of them initialized to the same given value
         DynamicArray(const DynamicArray& other);//copy constructor to pass an array and make a copy
 
         void swap(DynamicArray& other);//helper function for =operator 

@@ -18,7 +18,7 @@ TEST(DynamicArrayConstructor, CapacityConstructor)
 {
     DynamicArray<int> arr(10);
 
-    EXPECT_EQ(arr.size(),0);
+    EXPECT_EQ(arr.size(),10);
     EXPECT_GE(arr.capacity(),10);
 }
 
@@ -38,10 +38,10 @@ TEST(DynamicArrayConstructor, CapacityConstructorAppend)
     arr.append(2);
     arr.append(3);
 
-    EXPECT_EQ(arr.size(),3);
-    EXPECT_EQ(arr[0],1);
-    EXPECT_EQ(arr[1],2);
-    EXPECT_EQ(arr[2],3);
+    EXPECT_EQ(arr.size(),8);
+    EXPECT_EQ(arr[5],1);
+    EXPECT_EQ(arr[6],2);
+    EXPECT_EQ(arr[7],3);
 }
 
 // FILL CONSTRUCTOR
