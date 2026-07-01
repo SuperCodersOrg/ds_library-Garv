@@ -1,70 +1,110 @@
 {
-  "tests": 12,
+  "tests": 20,
   "name": "AllTests",
   "testsuites": [
     {
       "name": "RedisTest",
-      "tests": 12,
+      "tests": 20,
       "testsuite": [
         {
-          "name": "SetAndGet",
-          "file": "C:\/Users\/garvc\/Desktop\/CQ\/Project-01\/tests\/redis_test.cpp",
-          "line": 47
-        },
-        {
-          "name": "UpdateExistingKey",
-          "file": "C:\/Users\/garvc\/Desktop\/CQ\/Project-01\/tests\/redis_test.cpp",
-          "line": 59
-        },
-        {
-          "name": "GetMissingKey",
-          "file": "C:\/Users\/garvc\/Desktop\/CQ\/Project-01\/tests\/redis_test.cpp",
-          "line": 71
-        },
-        {
-          "name": "DeleteKey",
-          "file": "C:\/Users\/garvc\/Desktop\/CQ\/Project-01\/tests\/redis_test.cpp",
-          "line": 85
+          "name": "DeleteExistingKey",
+          "file": "C:\/Users\/garvc\/Desktop\/CQ\/Project-01\/tests\/redis\/test_delete_exists.cpp",
+          "line": 42
         },
         {
           "name": "DeleteMissingKey",
-          "file": "C:\/Users\/garvc\/Desktop\/CQ\/Project-01\/tests\/redis_test.cpp",
-          "line": 98
+          "file": "C:\/Users\/garvc\/Desktop\/CQ\/Project-01\/tests\/redis\/test_delete_exists.cpp",
+          "line": 55
         },
         {
-          "name": "Exists",
-          "file": "C:\/Users\/garvc\/Desktop\/CQ\/Project-01\/tests\/redis_test.cpp",
-          "line": 112
+          "name": "ExistsTrue",
+          "file": "C:\/Users\/garvc\/Desktop\/CQ\/Project-01\/tests\/redis\/test_delete_exists.cpp",
+          "line": 65
+        },
+        {
+          "name": "ExistsFalse",
+          "file": "C:\/Users\/garvc\/Desktop\/CQ\/Project-01\/tests\/redis\/test_delete_exists.cpp",
+          "line": 76
         },
         {
           "name": "Count",
-          "file": "C:\/Users\/garvc\/Desktop\/CQ\/Project-01\/tests\/redis_test.cpp",
-          "line": 129
+          "file": "C:\/Users\/garvc\/Desktop\/CQ\/Project-01\/tests\/redis\/test_delete_exists.cpp",
+          "line": 86
         },
         {
           "name": "Clear",
-          "file": "C:\/Users\/garvc\/Desktop\/CQ\/Project-01\/tests\/redis_test.cpp",
-          "line": 145
+          "file": "C:\/Users\/garvc\/Desktop\/CQ\/Project-01\/tests\/redis\/test_delete_exists.cpp",
+          "line": 98
         },
         {
-          "name": "InvalidSet",
-          "file": "C:\/Users\/garvc\/Desktop\/CQ\/Project-01\/tests\/redis_test.cpp",
-          "line": 163
+          "name": "SetSingleKey",
+          "file": "C:\/Users\/garvc\/Desktop\/CQ\/Project-01\/tests\/redis\/test_set_get.cpp",
+          "line": 48
         },
         {
-          "name": "InvalidGet",
-          "file": "C:\/Users\/garvc\/Desktop\/CQ\/Project-01\/tests\/redis_test.cpp",
-          "line": 173
+          "name": "UpdateExistingKey",
+          "file": "C:\/Users\/garvc\/Desktop\/CQ\/Project-01\/tests\/redis\/test_set_get.cpp",
+          "line": 60
         },
         {
-          "name": "UnknownCommand",
-          "file": "C:\/Users\/garvc\/Desktop\/CQ\/Project-01\/tests\/redis_test.cpp",
-          "line": 183
+          "name": "GetMissingKey",
+          "file": "C:\/Users\/garvc\/Desktop\/CQ\/Project-01\/tests\/redis\/test_set_get.cpp",
+          "line": 72
         },
         {
           "name": "ValueWithSpaces",
-          "file": "C:\/Users\/garvc\/Desktop\/CQ\/Project-01\/tests\/redis_test.cpp",
-          "line": 197
+          "file": "C:\/Users\/garvc\/Desktop\/CQ\/Project-01\/tests\/redis\/test_set_get.cpp",
+          "line": 82
+        },
+        {
+          "name": "EmptyValueRejected",
+          "file": "C:\/Users\/garvc\/Desktop\/CQ\/Project-01\/tests\/redis\/test_set_get.cpp",
+          "line": 93
+        },
+        {
+          "name": "EmptyKeyRejected",
+          "file": "C:\/Users\/garvc\/Desktop\/CQ\/Project-01\/tests\/redis\/test_set_get.cpp",
+          "line": 103
+        },
+        {
+          "name": "Help",
+          "file": "C:\/Users\/garvc\/Desktop\/CQ\/Project-01\/tests\/redis\/test_commands.cpp",
+          "line": 48
+        },
+        {
+          "name": "Stats",
+          "file": "C:\/Users\/garvc\/Desktop\/CQ\/Project-01\/tests\/redis\/test_commands.cpp",
+          "line": 58
+        },
+        {
+          "name": "Debug",
+          "file": "C:\/Users\/garvc\/Desktop\/CQ\/Project-01\/tests\/redis\/test_commands.cpp",
+          "line": 72
+        },
+        {
+          "name": "Print",
+          "file": "C:\/Users\/garvc\/Desktop\/CQ\/Project-01\/tests\/redis\/test_commands.cpp",
+          "line": 83
+        },
+        {
+          "name": "UnknownCommand",
+          "file": "C:\/Users\/garvc\/Desktop\/CQ\/Project-01\/tests\/redis\/test_commands.cpp",
+          "line": 95
+        },
+        {
+          "name": "InvalidGet",
+          "file": "C:\/Users\/garvc\/Desktop\/CQ\/Project-01\/tests\/redis\/test_commands.cpp",
+          "line": 105
+        },
+        {
+          "name": "InvalidDel",
+          "file": "C:\/Users\/garvc\/Desktop\/CQ\/Project-01\/tests\/redis\/test_commands.cpp",
+          "line": 115
+        },
+        {
+          "name": "InvalidExists",
+          "file": "C:\/Users\/garvc\/Desktop\/CQ\/Project-01\/tests\/redis\/test_commands.cpp",
+          "line": 125
         }
       ]
     }

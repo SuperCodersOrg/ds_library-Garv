@@ -1,0 +1,557 @@
+{
+  "tests": 91,
+  "name": "AllTests",
+  "testsuites": [
+    {
+      "name": "SinglyListUtility",
+      "tests": 15,
+      "testsuite": [
+        {
+          "name": "ClearNonEmptyList",
+          "file": "C:\/Users\/garvc\/Desktop\/CQ\/Project-01\/tests\/linkedlist\/test_utility.cpp",
+          "line": 9
+        },
+        {
+          "name": "ClearEmptyList",
+          "file": "C:\/Users\/garvc\/Desktop\/CQ\/Project-01\/tests\/linkedlist\/test_utility.cpp",
+          "line": 23
+        },
+        {
+          "name": "AppendAfterClear",
+          "file": "C:\/Users\/garvc\/Desktop\/CQ\/Project-01\/tests\/linkedlist\/test_utility.cpp",
+          "line": 34
+        },
+        {
+          "name": "ClearMultipleTimes",
+          "file": "C:\/Users\/garvc\/Desktop\/CQ\/Project-01\/tests\/linkedlist\/test_utility.cpp",
+          "line": 50
+        },
+        {
+          "name": "InitialSize",
+          "file": "C:\/Users\/garvc\/Desktop\/CQ\/Project-01\/tests\/linkedlist\/test_utility.cpp",
+          "line": 66
+        },
+        {
+          "name": "SizeAfterAppend",
+          "file": "C:\/Users\/garvc\/Desktop\/CQ\/Project-01\/tests\/linkedlist\/test_utility.cpp",
+          "line": 74
+        },
+        {
+          "name": "SizeAfterInsert",
+          "file": "C:\/Users\/garvc\/Desktop\/CQ\/Project-01\/tests\/linkedlist\/test_utility.cpp",
+          "line": 85
+        },
+        {
+          "name": "SizeAfterRemove",
+          "file": "C:\/Users\/garvc\/Desktop\/CQ\/Project-01\/tests\/linkedlist\/test_utility.cpp",
+          "line": 98
+        },
+        {
+          "name": "IsEmptyInitially",
+          "file": "C:\/Users\/garvc\/Desktop\/CQ\/Project-01\/tests\/linkedlist\/test_utility.cpp",
+          "line": 113
+        },
+        {
+          "name": "IsEmptyAfterAppend",
+          "file": "C:\/Users\/garvc\/Desktop\/CQ\/Project-01\/tests\/linkedlist\/test_utility.cpp",
+          "line": 121
+        },
+        {
+          "name": "IsEmptyAfterClear",
+          "file": "C:\/Users\/garvc\/Desktop\/CQ\/Project-01\/tests\/linkedlist\/test_utility.cpp",
+          "line": 131
+        },
+        {
+          "name": "IsEmptyAfterRemovingLastElement",
+          "file": "C:\/Users\/garvc\/Desktop\/CQ\/Project-01\/tests\/linkedlist\/test_utility.cpp",
+          "line": 143
+        },
+        {
+          "name": "PrintEmptyList",
+          "file": "C:\/Users\/garvc\/Desktop\/CQ\/Project-01\/tests\/linkedlist\/test_utility.cpp",
+          "line": 157
+        },
+        {
+          "name": "PrintSingleElement",
+          "file": "C:\/Users\/garvc\/Desktop\/CQ\/Project-01\/tests\/linkedlist\/test_utility.cpp",
+          "line": 172
+        },
+        {
+          "name": "PrintMultipleElements",
+          "file": "C:\/Users\/garvc\/Desktop\/CQ\/Project-01\/tests\/linkedlist\/test_utility.cpp",
+          "line": 189
+        }
+      ]
+    },
+    {
+      "name": "SinglyListOperator",
+      "tests": 12,
+      "testsuite": [
+        {
+          "name": "ReadFirstElement",
+          "file": "C:\/Users\/garvc\/Desktop\/CQ\/Project-01\/tests\/linkedlist\/test_operator.cpp",
+          "line": 8
+        },
+        {
+          "name": "ReadMiddleElement",
+          "file": "C:\/Users\/garvc\/Desktop\/CQ\/Project-01\/tests\/linkedlist\/test_operator.cpp",
+          "line": 19
+        },
+        {
+          "name": "ReadLastElement",
+          "file": "C:\/Users\/garvc\/Desktop\/CQ\/Project-01\/tests\/linkedlist\/test_operator.cpp",
+          "line": 30
+        },
+        {
+          "name": "ModifyFirstElement",
+          "file": "C:\/Users\/garvc\/Desktop\/CQ\/Project-01\/tests\/linkedlist\/test_operator.cpp",
+          "line": 42
+        },
+        {
+          "name": "ModifyMiddleElement",
+          "file": "C:\/Users\/garvc\/Desktop\/CQ\/Project-01\/tests\/linkedlist\/test_operator.cpp",
+          "line": 56
+        },
+        {
+          "name": "ModifyLastElement",
+          "file": "C:\/Users\/garvc\/Desktop\/CQ\/Project-01\/tests\/linkedlist\/test_operator.cpp",
+          "line": 73
+        },
+        {
+          "name": "ConstOperatorRead",
+          "file": "C:\/Users\/garvc\/Desktop\/CQ\/Project-01\/tests\/linkedlist\/test_operator.cpp",
+          "line": 86
+        },
+        {
+          "name": "EmptyListThrows",
+          "file": "C:\/Users\/garvc\/Desktop\/CQ\/Project-01\/tests\/linkedlist\/test_operator.cpp",
+          "line": 102
+        },
+        {
+          "name": "NegativeIndexThrows",
+          "file": "C:\/Users\/garvc\/Desktop\/CQ\/Project-01\/tests\/linkedlist\/test_operator.cpp",
+          "line": 110
+        },
+        {
+          "name": "PastEndThrows",
+          "file": "C:\/Users\/garvc\/Desktop\/CQ\/Project-01\/tests\/linkedlist\/test_operator.cpp",
+          "line": 120
+        },
+        {
+          "name": "LargeDatasetAccess",
+          "file": "C:\/Users\/garvc\/Desktop\/CQ\/Project-01\/tests\/linkedlist\/test_operator.cpp",
+          "line": 130
+        },
+        {
+          "name": "ArithmeticExpression",
+          "file": "C:\/Users\/garvc\/Desktop\/CQ\/Project-01\/tests\/linkedlist\/test_operator.cpp",
+          "line": 142
+        }
+      ]
+    },
+    {
+      "name": "SinglyListInsertTest",
+      "tests": 3,
+      "testsuite": [
+        {
+          "name": "InsertAtBeginning",
+          "file": "C:\/Users\/garvc\/Desktop\/CQ\/Project-01\/tests\/linkedlist\/test_insert.cpp",
+          "line": 20
+        },
+        {
+          "name": "InsertAtMiddle",
+          "file": "C:\/Users\/garvc\/Desktop\/CQ\/Project-01\/tests\/linkedlist\/test_insert.cpp",
+          "line": 35
+        },
+        {
+          "name": "InsertAtEnd",
+          "file": "C:\/Users\/garvc\/Desktop\/CQ\/Project-01\/tests\/linkedlist\/test_insert.cpp",
+          "line": 50
+        }
+      ]
+    },
+    {
+      "name": "SinglyListInsert",
+      "tests": 6,
+      "testsuite": [
+        {
+          "name": "InsertIntoEmptyList",
+          "file": "C:\/Users\/garvc\/Desktop\/CQ\/Project-01\/tests\/linkedlist\/test_insert.cpp",
+          "line": 59
+        },
+        {
+          "name": "InsertIntoSingleElementList",
+          "file": "C:\/Users\/garvc\/Desktop\/CQ\/Project-01\/tests\/linkedlist\/test_insert.cpp",
+          "line": 70
+        },
+        {
+          "name": "InsertNegativeIndexThrows",
+          "file": "C:\/Users\/garvc\/Desktop\/CQ\/Project-01\/tests\/linkedlist\/test_insert.cpp",
+          "line": 85
+        },
+        {
+          "name": "InsertPastEndThrows",
+          "file": "C:\/Users\/garvc\/Desktop\/CQ\/Project-01\/tests\/linkedlist\/test_insert.cpp",
+          "line": 93
+        },
+        {
+          "name": "InsertLargeDataset",
+          "file": "C:\/Users\/garvc\/Desktop\/CQ\/Project-01\/tests\/linkedlist\/test_insert.cpp",
+          "line": 103
+        },
+        {
+          "name": "MultipleInsertions",
+          "file": "C:\/Users\/garvc\/Desktop\/CQ\/Project-01\/tests\/linkedlist\/test_insert.cpp",
+          "line": 123
+        }
+      ]
+    },
+    {
+      "name": "SinglyListInsertFront",
+      "tests": 4,
+      "testsuite": [
+        {
+          "name": "InsertFrontEmpty",
+          "file": "C:\/Users\/garvc\/Desktop\/CQ\/Project-01\/tests\/linkedlist\/test_insert.cpp",
+          "line": 143
+        },
+        {
+          "name": "InsertFrontNonEmpty",
+          "file": "C:\/Users\/garvc\/Desktop\/CQ\/Project-01\/tests\/linkedlist\/test_insert.cpp",
+          "line": 154
+        },
+        {
+          "name": "MultipleInsertFront",
+          "file": "C:\/Users\/garvc\/Desktop\/CQ\/Project-01\/tests\/linkedlist\/test_insert.cpp",
+          "line": 171
+        },
+        {
+          "name": "InsertFrontAfterAppend",
+          "file": "C:\/Users\/garvc\/Desktop\/CQ\/Project-01\/tests\/linkedlist\/test_insert.cpp",
+          "line": 187
+        }
+      ]
+    },
+    {
+      "name": "SinglyListRemoveTest",
+      "tests": 4,
+      "testsuite": [
+        {
+          "name": "RemoveFirstElement",
+          "file": "C:\/Users\/garvc\/Desktop\/CQ\/Project-01\/tests\/linkedlist\/test_remove.cpp",
+          "line": 22
+        },
+        {
+          "name": "RemoveMiddleElement",
+          "file": "C:\/Users\/garvc\/Desktop\/CQ\/Project-01\/tests\/linkedlist\/test_remove.cpp",
+          "line": 35
+        },
+        {
+          "name": "RemoveLastElement",
+          "file": "C:\/Users\/garvc\/Desktop\/CQ\/Project-01\/tests\/linkedlist\/test_remove.cpp",
+          "line": 48
+        },
+        {
+          "name": "RemoveFront",
+          "file": "C:\/Users\/garvc\/Desktop\/CQ\/Project-01\/tests\/linkedlist\/test_remove.cpp",
+          "line": 158
+        }
+      ]
+    },
+    {
+      "name": "SinglyListRemove",
+      "tests": 7,
+      "testsuite": [
+        {
+          "name": "RemoveOnlyElement",
+          "file": "C:\/Users\/garvc\/Desktop\/CQ\/Project-01\/tests\/linkedlist\/test_remove.cpp",
+          "line": 61
+        },
+        {
+          "name": "RemoveAllElements",
+          "file": "C:\/Users\/garvc\/Desktop\/CQ\/Project-01\/tests\/linkedlist\/test_remove.cpp",
+          "line": 74
+        },
+        {
+          "name": "RemoveFromEmptyThrows",
+          "file": "C:\/Users\/garvc\/Desktop\/CQ\/Project-01\/tests\/linkedlist\/test_remove.cpp",
+          "line": 89
+        },
+        {
+          "name": "RemoveNegativeIndexThrows",
+          "file": "C:\/Users\/garvc\/Desktop\/CQ\/Project-01\/tests\/linkedlist\/test_remove.cpp",
+          "line": 97
+        },
+        {
+          "name": "RemovePastEndThrows",
+          "file": "C:\/Users\/garvc\/Desktop\/CQ\/Project-01\/tests\/linkedlist\/test_remove.cpp",
+          "line": 107
+        },
+        {
+          "name": "RemoveLargeDataset",
+          "file": "C:\/Users\/garvc\/Desktop\/CQ\/Project-01\/tests\/linkedlist\/test_remove.cpp",
+          "line": 117
+        },
+        {
+          "name": "MultipleRemovals",
+          "file": "C:\/Users\/garvc\/Desktop\/CQ\/Project-01\/tests\/linkedlist\/test_remove.cpp",
+          "line": 136
+        }
+      ]
+    },
+    {
+      "name": "SinglyListRemoveFront",
+      "tests": 3,
+      "testsuite": [
+        {
+          "name": "RemoveFrontSingleElement",
+          "file": "C:\/Users\/garvc\/Desktop\/CQ\/Project-01\/tests\/linkedlist\/test_remove.cpp",
+          "line": 171
+        },
+        {
+          "name": "RemoveFrontRepeatedly",
+          "file": "C:\/Users\/garvc\/Desktop\/CQ\/Project-01\/tests\/linkedlist\/test_remove.cpp",
+          "line": 184
+        },
+        {
+          "name": "RemoveFrontEmptyThrows",
+          "file": "C:\/Users\/garvc\/Desktop\/CQ\/Project-01\/tests\/linkedlist\/test_remove.cpp",
+          "line": 199
+        }
+      ]
+    },
+    {
+      "name": "SinglyListGetSearchTest",
+      "tests": 7,
+      "testsuite": [
+        {
+          "name": "GetFirstElement",
+          "file": "C:\/Users\/garvc\/Desktop\/CQ\/Project-01\/tests\/linkedlist\/test_get_search.cpp",
+          "line": 20
+        },
+        {
+          "name": "GetMiddleElement",
+          "file": "C:\/Users\/garvc\/Desktop\/CQ\/Project-01\/tests\/linkedlist\/test_get_search.cpp",
+          "line": 29
+        },
+        {
+          "name": "GetLastElement",
+          "file": "C:\/Users\/garvc\/Desktop\/CQ\/Project-01\/tests\/linkedlist\/test_get_search.cpp",
+          "line": 38
+        },
+        {
+          "name": "SearchFirstElement",
+          "file": "C:\/Users\/garvc\/Desktop\/CQ\/Project-01\/tests\/linkedlist\/test_get_search.cpp",
+          "line": 107
+        },
+        {
+          "name": "SearchMiddleElement",
+          "file": "C:\/Users\/garvc\/Desktop\/CQ\/Project-01\/tests\/linkedlist\/test_get_search.cpp",
+          "line": 113
+        },
+        {
+          "name": "SearchLastElement",
+          "file": "C:\/Users\/garvc\/Desktop\/CQ\/Project-01\/tests\/linkedlist\/test_get_search.cpp",
+          "line": 119
+        },
+        {
+          "name": "SearchMissingElement",
+          "file": "C:\/Users\/garvc\/Desktop\/CQ\/Project-01\/tests\/linkedlist\/test_get_search.cpp",
+          "line": 125
+        }
+      ]
+    },
+    {
+      "name": "SinglyListGet",
+      "tests": 4,
+      "testsuite": [
+        {
+          "name": "GetFromEmptyList",
+          "file": "C:\/Users\/garvc\/Desktop\/CQ\/Project-01\/tests\/linkedlist\/test_get_search.cpp",
+          "line": 47
+        },
+        {
+          "name": "GetNegativeIndex",
+          "file": "C:\/Users\/garvc\/Desktop\/CQ\/Project-01\/tests\/linkedlist\/test_get_search.cpp",
+          "line": 57
+        },
+        {
+          "name": "GetPastEnd",
+          "file": "C:\/Users\/garvc\/Desktop\/CQ\/Project-01\/tests\/linkedlist\/test_get_search.cpp",
+          "line": 69
+        },
+        {
+          "name": "GetAfterModifications",
+          "file": "C:\/Users\/garvc\/Desktop\/CQ\/Project-01\/tests\/linkedlist\/test_get_search.cpp",
+          "line": 81
+        }
+      ]
+    },
+    {
+      "name": "SinglyListSearch",
+      "tests": 3,
+      "testsuite": [
+        {
+          "name": "SearchDuplicateValues",
+          "file": "C:\/Users\/garvc\/Desktop\/CQ\/Project-01\/tests\/linkedlist\/test_get_search.cpp",
+          "line": 131
+        },
+        {
+          "name": "SearchEmptyList",
+          "file": "C:\/Users\/garvc\/Desktop\/CQ\/Project-01\/tests\/linkedlist\/test_get_search.cpp",
+          "line": 144
+        },
+        {
+          "name": "SearchAfterRemove",
+          "file": "C:\/Users\/garvc\/Desktop\/CQ\/Project-01\/tests\/linkedlist\/test_get_search.cpp",
+          "line": 152
+        }
+      ]
+    },
+    {
+      "name": "SinglyListConstructor",
+      "tests": 2,
+      "testsuite": [
+        {
+          "name": "DefaultConstructor",
+          "file": "C:\/Users\/garvc\/Desktop\/CQ\/Project-01\/tests\/linkedlist\/test_constructors.cpp",
+          "line": 6
+        },
+        {
+          "name": "DefaultConstructorAppend",
+          "file": "C:\/Users\/garvc\/Desktop\/CQ\/Project-01\/tests\/linkedlist\/test_constructors.cpp",
+          "line": 14
+        }
+      ]
+    },
+    {
+      "name": "SinglyListCopyConstructor",
+      "tests": 4,
+      "testsuite": [
+        {
+          "name": "DeepCopy",
+          "file": "C:\/Users\/garvc\/Desktop\/CQ\/Project-01\/tests\/linkedlist\/test_constructors.cpp",
+          "line": 27
+        },
+        {
+          "name": "CopyEmptyList",
+          "file": "C:\/Users\/garvc\/Desktop\/CQ\/Project-01\/tests\/linkedlist\/test_constructors.cpp",
+          "line": 49
+        },
+        {
+          "name": "CopyLargeList",
+          "file": "C:\/Users\/garvc\/Desktop\/CQ\/Project-01\/tests\/linkedlist\/test_constructors.cpp",
+          "line": 59
+        },
+        {
+          "name": "CopyIndependence",
+          "file": "C:\/Users\/garvc\/Desktop\/CQ\/Project-01\/tests\/linkedlist\/test_constructors.cpp",
+          "line": 74
+        }
+      ]
+    },
+    {
+      "name": "SinglyListAssignment",
+      "tests": 5,
+      "testsuite": [
+        {
+          "name": "NormalAssignment",
+          "file": "C:\/Users\/garvc\/Desktop\/CQ\/Project-01\/tests\/linkedlist\/test_constructors.cpp",
+          "line": 91
+        },
+        {
+          "name": "SelfAssignment",
+          "file": "C:\/Users\/garvc\/Desktop\/CQ\/Project-01\/tests\/linkedlist\/test_constructors.cpp",
+          "line": 116
+        },
+        {
+          "name": "AssignEmptyToNonEmpty",
+          "file": "C:\/Users\/garvc\/Desktop\/CQ\/Project-01\/tests\/linkedlist\/test_constructors.cpp",
+          "line": 130
+        },
+        {
+          "name": "AssignNonEmptyToEmpty",
+          "file": "C:\/Users\/garvc\/Desktop\/CQ\/Project-01\/tests\/linkedlist\/test_constructors.cpp",
+          "line": 145
+        },
+        {
+          "name": "AssignmentDeepCopy",
+          "file": "C:\/Users\/garvc\/Desktop\/CQ\/Project-01\/tests\/linkedlist\/test_constructors.cpp",
+          "line": 162
+        }
+      ]
+    },
+    {
+      "name": "SinglyListIteratorConstructor",
+      "tests": 4,
+      "testsuite": [
+        {
+          "name": "ConstructFromArray",
+          "file": "C:\/Users\/garvc\/Desktop\/CQ\/Project-01\/tests\/linkedlist\/test_constructors.cpp",
+          "line": 180
+        },
+        {
+          "name": "ConstructSingleElement",
+          "file": "C:\/Users\/garvc\/Desktop\/CQ\/Project-01\/tests\/linkedlist\/test_constructors.cpp",
+          "line": 192
+        },
+        {
+          "name": "ConstructEmptyRange",
+          "file": "C:\/Users\/garvc\/Desktop\/CQ\/Project-01\/tests\/linkedlist\/test_constructors.cpp",
+          "line": 202
+        },
+        {
+          "name": "ConstructLargeRange",
+          "file": "C:\/Users\/garvc\/Desktop\/CQ\/Project-01\/tests\/linkedlist\/test_constructors.cpp",
+          "line": 212
+        }
+      ]
+    },
+    {
+      "name": "SinglyListAppend",
+      "tests": 8,
+      "testsuite": [
+        {
+          "name": "AppendSingleElement",
+          "file": "C:\/Users\/garvc\/Desktop\/CQ\/Project-01\/tests\/linkedlist\/test_append.cpp",
+          "line": 7
+        },
+        {
+          "name": "AppendMultipleElements",
+          "file": "C:\/Users\/garvc\/Desktop\/CQ\/Project-01\/tests\/linkedlist\/test_append.cpp",
+          "line": 19
+        },
+        {
+          "name": "OrderPreserved",
+          "file": "C:\/Users\/garvc\/Desktop\/CQ\/Project-01\/tests\/linkedlist\/test_append.cpp",
+          "line": 33
+        },
+        {
+          "name": "AppendDuplicateValues",
+          "file": "C:\/Users\/garvc\/Desktop\/CQ\/Project-01\/tests\/linkedlist\/test_append.cpp",
+          "line": 49
+        },
+        {
+          "name": "AppendNegativeValues",
+          "file": "C:\/Users\/garvc\/Desktop\/CQ\/Project-01\/tests\/linkedlist\/test_append.cpp",
+          "line": 65
+        },
+        {
+          "name": "AppendAfterClear",
+          "file": "C:\/Users\/garvc\/Desktop\/CQ\/Project-01\/tests\/linkedlist\/test_append.cpp",
+          "line": 81
+        },
+        {
+          "name": "AppendLargeDataset",
+          "file": "C:\/Users\/garvc\/Desktop\/CQ\/Project-01\/tests\/linkedlist\/test_append.cpp",
+          "line": 98
+        },
+        {
+          "name": "MultipleAppendOperations",
+          "file": "C:\/Users\/garvc\/Desktop\/CQ\/Project-01\/tests\/linkedlist\/test_append.cpp",
+          "line": 113
+        }
+      ]
+    }
+  ]
+}

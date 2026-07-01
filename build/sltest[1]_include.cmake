@@ -1,0 +1,5 @@
+if(EXISTS "C:/Users/garvc/Desktop/CQ/Project-01/build/sltest[1]_tests.cmake")
+  include("C:/Users/garvc/Desktop/CQ/Project-01/build/sltest[1]_tests.cmake")
+else()
+  add_test(sltest_NOT_BUILT sltest_NOT_BUILT)
+endif()

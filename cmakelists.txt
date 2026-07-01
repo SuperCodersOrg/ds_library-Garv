@@ -20,23 +20,67 @@ set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 set(gtest_disable_pthreads ON CACHE BOOL "" FORCE) 
 FetchContent_MakeAvailable(googletest)
 
-#3.TEST DS
-add_executable(run_tests
-    tests/dynamic_array_test.cpp
-    tests/singly_list_test.cpp
-    tests/hash_map_test.cpp
+#3.TEST DA
+add_executable(datest
+    tests/dynamicarray/test_append.cpp
+    tests/dynamicarray/test_constructors.cpp
+    tests/dynamicarray/test_get_set.cpp
+    tests/dynamicarray/test_remove.cpp
+    tests/dynamicarray/test_insert.cpp
+    tests/dynamicarray/test_iterators.cpp
+    tests/dynamicarray/test_operator.cpp
+    tests/dynamicarray/test_utility.cpp
 )
 
-target_include_directories(run_tests PRIVATE include)
+target_include_directories(datest PRIVATE include)
 
-target_link_libraries(run_tests gtest_main)
+target_link_libraries(datest gtest_main)
 
 include(GoogleTest)
-gtest_discover_tests(run_tests)
+gtest_discover_tests(datest)
+
+#4.TEST SL
+add_executable(sltest
+    tests/linkedlist/test_append.cpp
+    tests/linkedlist/test_constructors.cpp
+    tests/linkedlist/test_get_search.cpp
+    tests/linkedlist/test_remove.cpp
+    tests/linkedlist/test_insert.cpp
+    tests/linkedlist/test_operator.cpp
+    tests/linkedlist/test_utility.cpp
+)
+
+target_include_directories(sltest PRIVATE include)
+
+target_link_libraries(sltest gtest_main)
+
+include(GoogleTest)
+gtest_discover_tests(sltest)
+
+#4.TEST HM
+add_executable(hmtest
+    tests/hashmap/test_constructors.cpp
+    tests/hashmap/test_remove.cpp
+    tests/hashmap/test_insert.cpp
+    tests/hashmap/test_utility.cpp
+    tests/hashmap/test_get.cpp
+    tests/hashmap/test_exists.cpp
+    tests/hashmap/test_clear.cpp
+)
+
+target_include_directories(hmtest PRIVATE include)
+
+target_link_libraries(hmtest gtest_main)
+
+include(GoogleTest)
+gtest_discover_tests(hmtest)
+
 
 #TEST REDIS
 add_executable(redistest
-    tests/redis_test.cpp
+    tests/redis/test_commands.cpp
+    tests/redis/test_set_get.cpp
+    tests/redis/test_delete_exists.cpp
 )
 
 target_include_directories(redistest PRIVATE include)

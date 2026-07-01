@@ -1,0 +1,5 @@
+if(EXISTS "C:/Users/garvc/Desktop/CQ/Project-01/build/hmtest[1]_tests.cmake")
+  include("C:/Users/garvc/Desktop/CQ/Project-01/build/hmtest[1]_tests.cmake")
+else()
+  add_test(hmtest_NOT_BUILT hmtest_NOT_BUILT)
+endif()

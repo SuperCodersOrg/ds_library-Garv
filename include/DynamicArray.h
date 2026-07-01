@@ -13,6 +13,7 @@
         T *data;
     //helper methods - 
         void destroy();//method to manually call destructors for each element in the array
+        void copyelements(T* copyto,const T* copyfrom, int count);//internal method to copy elements from array into a new one (used in resize n deepcopy)
         void resize(int newcap);//internal method to resize the array whenever needed
         void deepcopy(const DynamicArray& other);//method to perform a deepcopy
         void init();//just to not repeat code in every constructor
@@ -22,8 +23,7 @@
     public:
     //constructors -
         DynamicArray();//default constructor
-        DynamicArray(int cap);//capacity constructor
-        DynamicArray(int count,const T& value);//to construct a Dynamic array of the given size with the all of them initialized to the same given value
+        DynamicArray(int count,const T& value = T());//to construct a Dynamic array of the given size with the all of them initialized to the same given value
         DynamicArray(const DynamicArray& other);//copy constructor to pass an array and make a copy
 
         void swap(DynamicArray& other);//helper function for =operator 
@@ -62,4 +62,4 @@
         ~DynamicArray();
     };
 
-#include "DynamicArray.tpp"
+#include "../src/DynamicArray.tpp"
