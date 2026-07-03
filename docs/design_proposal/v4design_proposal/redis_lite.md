@@ -21,9 +21,9 @@ Redis Lite is a small interactive command-line layer built on top of the project
 - `HELP` prints the command list again.
 - `EXIT` leaves the shell.
 
-## Behavior notes
+# Notes - 
 
 - Input is parsed one line at a time.
-- `SET` preserves everything after the key as the value, including spaces.
+- `SET` preserves everything after the key as the value including spaces.
 - Unknown commands print `Unknown Command`.
-- The shell uses the project’s hash map as its only storage layer, so all Redis Lite behavior depends on the underlying hash map and list implementations.
+- The shell uses the project’s hash map as its only storage layer 
