@@ -113,3 +113,14 @@ class HashMap {
 * A load factor of `0.75` is a good balance for this project, so I kept that as the default.
 * I kept the hash function customizable so the map can work with more than just basic types.
 * `print()` and `debugPrint()` are kept in the class because they are useful for testing and understanding what the table is doing.
+* initial capacity is set to 16 buckets because it is a small power of two, which is a good starting point for a hash table n it is large enough to avoid excessive collisions for small datasets while not wasting much memory.
+* The `rehash()` method doubles the bucket count when the load factor exceeds the threshold, which helps maintain efficient operations as the number of entries grows.
+* stored key & value together in an `Entry` struct keeping them together simplifies copying and managing the data, and allows for easy comparison of entries when searching or removing.
+
+* Integer Hash - XOR - Mixes high order bits into low order bits & prevents nearby integers from producing nearby bucket indexes & XOR is extremely fast since it is a single CPU instruction and shift by 16 bits so that all bits of the integer are used in the hash calculation, and the number 0x45d9f3b is a well known constant that helps to further randomize the bits of the integer, reducing the likelihood of collisions in the hash table.
+
+* Char Hash - Characters are converted directly to their integer ASCII value and used with the integer hash function
+
+* String Hash - 2166136261 official offset for FNV-1a hash, provides a good initial distribution also prevents common prefixes from producing similar hash values , xor each char to the hash value and multiply by 16777619, which is a prime number that helps to further randomize the bits of the hash value, reducing the collisions in the hash table.
+
+* Default Hash - fallback for unsupported types, uses the address of the object as a hash value, which is not ideal but provides a basic level of functionality for custom types without a defined hash function.Two different objects containing identical values will produce different hashes because their addresses differ.

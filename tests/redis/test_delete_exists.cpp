@@ -1,6 +1,6 @@
 #include <gtest/gtest.h>
 #include <sstream>
-#include <Redis>
+#include <Redis.h>
 
 class RedisTest : public ::testing::Test
 {

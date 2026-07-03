@@ -18,7 +18,8 @@ include/
   DynamicArray.h
   SinglyList.h
   HashMap.h
-  headers/Redis
+  Redis.h
+  src/Redis.tpp
 src/
   DynamicArray.tpp
   SinglyList.tpp
@@ -68,7 +69,7 @@ ctest
 
 ## Redis Lite commands
 
-The Redis shell in include/headers/Redis accepts one command per line.
+The Redis shell in include/Redis.h accepts one command per line.
 
 ```text
 SET name Garv
