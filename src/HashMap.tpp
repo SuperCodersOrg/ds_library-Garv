@@ -6,7 +6,7 @@
 
     //hashes based on their memory address treating them as huge integers
     template<typename T>
-    inline size_t DefaultHash<T>::operator()(const T& val)const{
+    inline size_t DefaultHash<T>::operator()(const T& val)const{ // inline prevents multiple definition linker errors when the header is included in multiple cpp units.
         std::uintptr_t addr = reinterpret_cast<std::uintptr_t>(&val);
         addr^=(addr>>16); 
         addr*=0x45d9f3b; 
@@ -17,7 +17,7 @@
     inline size_t DefaultHash<int>::operator()(int x)const{
         size_t h = static_cast<size_t>(x);
         h^=(h>>16); //xor high bits into low bits
-        h*=0x45d9f3b;//large scattering constant
+        h*=0x45d9f3b;//large scattering constant 73525051
         h^=(h>>16); //xor again to distribute result;
         return h;
     }

@@ -90,3 +90,4 @@ class SinglyList {
 * Storing `count` as a member lets `size()` stay constant time.
 * The `search()` method returns the index because that is more useful than a plain yes/no result.
 * This list is also a good fit for hash map chaining because it stays simple and memory usage stays low.
+* I implemented operator[] for convenience even though random access in a linked list is O(n)
