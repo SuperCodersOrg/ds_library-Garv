@@ -86,7 +86,6 @@ class SinglyList {
 
 ## Design Decisions
 
-* I used a singly linked list instead of a doubly linked list because the project does not need backward traversal.
 * Keeping both `head` and `tail` makes front and back insertions easy.
 * Storing `count` as a member lets `size()` stay constant time.
 * The `search()` method returns the index because that is more useful than a plain yes/no result.

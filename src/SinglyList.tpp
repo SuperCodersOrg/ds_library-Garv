@@ -319,6 +319,19 @@ const T& SinglyList<T>::operator[](int index) const
     return curr->data;
 }
 
+//front operator added for crawler(frontier queue)
+template<typename T>
+T& SinglyList<T>::front(){
+    if(head==nullptr)throw std::out_of_range("Empty List");
+    return head->data;
+}
+//const
+template<typename T>
+const T& SinglyList<T>::front()const{
+    if(head==nullptr)throw std::out_of_range("Empty List");
+    return head->data;
+}
+
 //check whether empty
 template<typename T>
 bool SinglyList<T>::isEmpty() const{

@@ -17,13 +17,44 @@
     inline size_t DefaultHash<int>::operator()(int x)const{
         size_t h = static_cast<size_t>(x);
         h^=(h>>16); //xor high bits into low bits
-        h*=0x45d9f3b;//large scattering constant (prime)
+        h*=0x45d9f3b;//large scattering constant
         h^=(h>>16); //xor again to distribute result;
         return h;
     }
     //hashes using integer hash
     inline size_t DefaultHash<char>::operator()(char c)const{
         return DefaultHash<int>()(static_cast<int>(c));
+    }
+    // hashes float using its bit representation
+    inline size_t DefaultHash<float>::operator()(float x) const
+    {
+        union//can also use bitcast - > access bits using the same bits(copying them) but diff interpretation
+        {
+            float f;
+            uint32_t bits;
+        } u;
+        u.f = x;
+        size_t h = static_cast<size_t>(u.bits);
+        h ^= (h >> 16);
+        h *= 0x45d9f3b;
+        h ^= (h >> 16);
+        return h;
+    }
+
+    // hashes double using its bit representation
+    inline size_t DefaultHash<double>::operator()(double x) const
+    {
+        union
+        {
+            double d;
+            uint64_t bits;
+        } u;
+        u.d = x;
+        size_t h = static_cast<size_t>(u.bits);
+        h ^= (h >> 32);
+        h *= 0x45d9f3b;
+        h ^= (h >> 16);
+        return h;
     }
     //simplified FNV-1A
     inline size_t DefaultHash<std::string>::operator()(const std::string& s)const
@@ -202,7 +233,7 @@
 
 //testing- 
 
-    //to print bucket array and their no of elements
+    //to print bucket array and their no of elements - gives an error for custom objs
     template<typename Key,typename Value,typename Hash>
     void HashMap<Key,Value,Hash>::debugPrint() const{
         for(int i=0;i<bucketcount;i++)

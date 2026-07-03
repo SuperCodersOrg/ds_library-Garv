@@ -64,6 +64,10 @@ class SinglyList {
         void print() const;
         //returns size of the linkedlist
         int size() const;
+        //front for first element
+        T& front();
+        //const
+        const T& front()const;
         //overloaded [] operator to access elements through it 
         T& operator[](int index);
         //const
