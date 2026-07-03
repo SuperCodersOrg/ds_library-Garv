@@ -65,7 +65,7 @@ class HashMap {
 * I kept a separate hash functor so custom key types can be supported later.
 * The bucket table uses `DynamicArray`, and each bucket stores a `SinglyList` of entries.
 * `get()` returns `bool` and writes the value through a reference, which keeps the API easy to use.
-* `threshold` controls when rehashing happens, so the table does not get too crowded.
+* `threshold` controls when rehashing happens so the table does not get too crowded.
 
 ## Internal Representation
 

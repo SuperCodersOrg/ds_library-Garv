@@ -21,6 +21,16 @@ template<>
 struct DefaultHash<char>{
     size_t operator()(char c)const;
 };
+//hashes using their bit representation
+template<>
+struct DefaultHash<double>{
+    size_t operator()(double c)const;
+};
+//hashes using their bit representation
+template<>
+struct DefaultHash<float>{
+    size_t operator()(float c)const;
+};
 //simplified FNV-1A
 template<>
 struct DefaultHash<std::string>{
