@@ -19,7 +19,6 @@ include/
   SinglyList.h
   HashMap.h
   Redis.h
-  src/Redis.tpp
 src/
   DynamicArray.tpp
   SinglyList.tpp
