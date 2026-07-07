@@ -1,5 +1,0 @@
-if(EXISTS "C:/Users/garvc/Desktop/CQ/Project-01/build/datest[1]_tests.cmake")
-  include("C:/Users/garvc/Desktop/CQ/Project-01/build/datest[1]_tests.cmake")
-else()
-  add_test(datest_NOT_BUILT datest_NOT_BUILT)
-endif()
