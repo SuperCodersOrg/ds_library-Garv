@@ -44,6 +44,9 @@
         void insert(int index,const T& value);//to insert an element to the given index
         void remove(int index);//to remove element from the given index 
         bool isEmpty()const;//to check if the array is empty
+        T& back(); //return last element added for stack ops
+        const T& back()const;
+        void popback();//to pop the last element
         void reserve(int newcap);//preallocate memory if needed without increasing size
         void shrinktosize();//to deallocate memory not in use to the size of the array        
         T& operator[](int index);//access elements using [] & is used to return a reference so using arr[10]=100 would be changeable

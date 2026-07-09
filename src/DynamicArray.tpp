@@ -215,6 +215,32 @@
         return true;
     }
 
+    template<typename T>
+    T& DynamicArray<T>::back()
+    {
+        if(size_==0)throw std::out_of_range("DynamicArray Empty");
+        return data[size_-1];
+    }
+
+    template<typename T>
+    const T& DynamicArray<T>::back()const{
+        if(size_==0)throw std::out_of_range("DynamicArray Empty");
+        return data[size_-1];
+    }
+
+    template<typename T>
+    void DynamicArray<T>::popback()
+    {
+        if(size_==0)throw std::out_of_range("Dynamic Array Empty");
+        destroyobj(data+size_-1);
+        size_--;
+        if(capacity_>4&&size_<capacity_/4)
+        {
+            resize(capacity_/2);
+        }
+    }
+
+
     //to modify elements at the given index (parameter const to let Rvalue be passed to it too)
     template <typename T>
     void DynamicArray<T>::set(int index,const T& value){
