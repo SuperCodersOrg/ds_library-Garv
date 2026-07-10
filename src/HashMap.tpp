@@ -3,6 +3,7 @@
     #include <iostream>
     #include <stdexcept>
     #include <HashMap.h>
+    #include <cstdint>
 
     //hashes based on their memory address treating them as huge integers
     template<typename T>
