@@ -5,8 +5,6 @@
 #include <new>
 #include <stdexcept>
 #include <SinglyList.h>
-
-using namespace std;
 //helper methods - 
 
 //allocate memory for a new node and create a new node
@@ -291,7 +289,7 @@ void SinglyList<T>::print() const{
         std::cout<<curr->data<<" ";
         curr=curr->next;
     }
-    std::cout<<endl;
+    std::cout<<std::endl;
 }
 
 //returns size of the linkedlist

@@ -5,7 +5,6 @@
 #include <new>
 #include <stdexcept>
 
-using namespace std;
 
 template<typename T>
 class SinglyList {

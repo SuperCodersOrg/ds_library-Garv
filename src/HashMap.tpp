@@ -261,7 +261,7 @@
         {
             const SinglyList<Entry>& bucket = buckets[i];
             for(int j=0;j<bucket.size();j++){
-                std::cout<<bucket[j].key<<" "<<bucket[j].value<<endl;
+                std::cout<<bucket[j].key<<" "<<bucket[j].value<<std::endl;
             }
         }
     }
