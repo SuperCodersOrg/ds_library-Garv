@@ -265,3 +265,16 @@
             }
         }
     }
+
+    template<typename Key,typename Value,typename Hash>
+    DynamicArray<Key> HashMap<Key,Value,Hash>::getKeys() const {
+        DynamicArray<Key> keys;
+        for(int i=0;i<bucketcount;i++)
+        {
+            const SinglyList<Entry>& bucket = buckets[i];
+            for(int j=0;j<bucket.size();j++){
+                keys.append(bucket[j].key);
+            }
+        }
+        return keys;
+    }

@@ -89,6 +89,8 @@ class HashMap{
     double loadFactor() const;
     //empty or not
     bool isEmpty() const;
+    // return list of all keys
+    DynamicArray<Key> getKeys() const;
     
     //testing- 
     
